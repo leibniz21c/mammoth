@@ -1,5 +1,12 @@
 Fast api Document
 
+*recommend upgrade your python version to 3.9
+
+*If you want to change python default version
+$ln -s -f /usr/local/bin/python3.9 /usr/local/bin/python
+
+
+
 —Install Fast Api—
 $pip install fastapi or 
 $pip3 install fastapi	//this is for python version3
@@ -8,9 +15,6 @@ $pip3 install fastapi	//this is for python version3
 $pip install unicorn	//python version2
 $pip install hypercorn
 
-*If you want to change python default version
-$ln -s -f /usr/local/bin/python3.9 /usr/local/bin/python
-
 And exit terminal, reopen it.
 
 Check version : 
@@ -18,9 +22,13 @@ $python --version
 Python 3.9.5
 
 
-—Check fastapi—
-Create main.py
 
+
+—Check fastapi—
+
+
+
+Create main.py
 
 *****************************
 main.py
@@ -30,6 +38,8 @@ from fastapi import FastAPI  app = FastAPI()  @app.get("/") def read_r
 Terminal
 $ uvicorn main:app --reload 
  check 127.0.0.1:8000
+
+
 
 
 —FastAPI For Docker—
@@ -74,6 +84,9 @@ Step5. Check container and
 
 $ docker images
 $ docker ps
+
+
+
 
 *if you cant run this app, follow this video
 https://www.youtube.com/watch?v=gVymPpepQco
