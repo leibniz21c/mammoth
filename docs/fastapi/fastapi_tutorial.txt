@@ -46,6 +46,10 @@ $ uvicorn main:app --reload
 step1. Create API DIR
 
 step2. Create Dockerfile
+$ touch Dockerfile
+
+At your project dir
+
 
 Dockerfile
 ****************************
