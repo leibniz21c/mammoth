@@ -20,6 +20,9 @@ class ConnectionManager:
 manager = ConnectionManager()
 
 
+
+
+#this part is for client html
 html = """
 <!DOCTYPE html>
 <html>
