@@ -27,64 +27,67 @@ class SignIn extends StatelessWidget {
             ),
           ),
           Pinned.fromPins(
-            Pin(start: 212.0, end: 212.0),
-            Pin(size: 60.0, end: 84.0),
+            Pin(startFraction: 0.2, endFraction: 0.2),
+            Pin(startFraction: 0.82, endFraction: 0.1),
             child:
                 // Adobe XD layer: 'button_signin' (component)
                 ButtonSignin(),
           ),
           Pinned.fromPins(
-            Pin(size: 63.0, middle: 0.5016),
-            Pin(size: 23.0, end: 102.0),
+            Pin(startFraction: 0.2, endFraction: 0.2),
+            Pin(startFraction: 0.82, endFraction: 0.1),
             child:
                 // Adobe XD layer: 'text_signin' (text)
-                Text(
-              'Sign in',
-              style: TextStyle(
-                fontFamily: 'HelveticaNeue',
-                fontSize: 20,
-                color: const Color(0xff121212),
-                fontWeight: FontWeight.w500,
+                Center(
+              child: Text(
+                'Sign in',
+                style: TextStyle(
+                  fontFamily: 'HelveticaNeue',
+                  fontSize: 20,
+                  color: const Color(0xff121212),
+                  fontWeight: FontWeight.w500,
+                ),
+                textAlign: TextAlign.left,
               ),
-              textAlign: TextAlign.left,
             ),
           ),
           Pinned.fromPins(
-            Pin(size: 358.0, middle: 0.467),
-            Pin(size: 17.0, end: 57.0),
+            Pin(startFraction: 0.2, endFraction: 0.2),
+            Pin(startFraction: 0.92, endFraction: 0.04),
             child:
                 // Adobe XD layer: 'text_description' (text)
-                Text.rich(
-              TextSpan(
-                style: TextStyle(
-                  fontFamily: 'HelveticaNeue',
-                  fontSize: 15,
-                  color: const Color(0xffffffff),
+                Center(
+              child: Text.rich(
+                TextSpan(
+                  style: TextStyle(
+                    fontFamily: 'HelveticaNeue',
+                    fontSize: 15,
+                    color: const Color(0xffffffff),
+                  ),
+                  children: [
+                    TextSpan(
+                      text: 'By signing in you accept our ',
+                    ),
+                    TextSpan(
+                      text: 'Terms of us',
+                      style: TextStyle(
+                        color: const Color(0xff3482ff),
+                      ),
+                    ),
+                    TextSpan(
+                      text: ' and ',
+                    ),
+                    TextSpan(
+                      text: 'Privacy policy.',
+                      style: TextStyle(
+                        color: const Color(0xff3482ff),
+                      ),
+                    ),
+                  ],
                 ),
-                children: [
-                  TextSpan(
-                    text: 'By signing in you accept our ',
-                  ),
-                  TextSpan(
-                    text: 'Terms of us',
-                    style: TextStyle(
-                      color: const Color(0xff3482ff),
-                    ),
-                  ),
-                  TextSpan(
-                    text: ' and ',
-                  ),
-                  TextSpan(
-                    text: 'Privacy policy.',
-                    style: TextStyle(
-                      color: const Color(0xff3482ff),
-                    ),
-                  ),
-                ],
+                textHeightBehavior:
+                    TextHeightBehavior(applyHeightToFirstAscent: false),
               ),
-              textHeightBehavior:
-                  TextHeightBehavior(applyHeightToFirstAscent: false),
-              textAlign: TextAlign.left,
             ),
           ),
         ],
