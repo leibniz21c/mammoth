@@ -191,18 +191,6 @@ class SignInDetail extends StatelessWidget {
             Pin(startFraction: 0.4, endFraction: 0.53),
             child:
                 // Adobe XD layer: 'button_signin' (shape)
-                Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30.0),
-                color: const Color(0xfff5f5f5),
-              ),
-            ),
-          ),
-          Pinned.fromPins(
-            Pin(startFraction: 0.17, endFraction: 0.17),
-            Pin(startFraction: 0.4, endFraction: 0.53),
-            child:
-                // Adobe XD layer: 'text_signin' (text)
                 PageLink(
               links: [
                 PageLinkInfo(
@@ -212,17 +200,29 @@ class SignInDetail extends StatelessWidget {
                   pageBuilder: () => Home(),
                 ),
               ],
-              child: Center(
-                child: Text(
-                  'Sign in',
-                  style: TextStyle(
-                    fontFamily: 'HelveticaNeue',
-                    fontSize: 16,
-                    color: const Color(0xff121212),
-                    fontWeight: FontWeight.w500,
-                  ),
-                  textAlign: TextAlign.left,
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30.0),
+                  color: const Color(0xfff5f5f5),
                 ),
+              ),
+            ),
+          ),
+          Pinned.fromPins(
+            Pin(startFraction: 0.17, endFraction: 0.17),
+            Pin(startFraction: 0.4, endFraction: 0.53),
+            child:
+                // Adobe XD layer: 'text_signin' (text)
+                Center(
+              child: Text(
+                'Sign in',
+                style: TextStyle(
+                  fontFamily: 'HelveticaNeue',
+                  fontSize: 16,
+                  color: const Color(0xff121212),
+                  fontWeight: FontWeight.w500,
+                ),
+                textAlign: TextAlign.left,
               ),
             ),
           ),

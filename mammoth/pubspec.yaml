@@ -27,6 +27,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   adobe_xd: ^2.0.0+1
   provider: ^5.0.0
+  fl_chart: ^0.36.3
 
 dev_dependencies:
   flutter_test:

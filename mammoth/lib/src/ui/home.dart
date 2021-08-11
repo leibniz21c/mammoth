@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
+import 'package:mammoth/src/chart/line_chart_sample.dart';
 import 'dart:ui' as ui;
 import 'settings.dart';
 import 'package:adobe_xd/page_link.dart';
@@ -271,14 +272,7 @@ class Home extends StatelessWidget {
             Pin(startFraction: 0.23, endFraction: 0.43),
             child:
                 // Adobe XD layer: 'temp_nodes' (shape)
-                Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/temp_nodes.png'),
-                  fit: BoxFit.fill,
-                ),
-              ),
-            ),
+                LineChartSample2(),
           ),
           Pinned.fromPins(
             Pin(startFraction: 0.29, endFraction: 0.02),
@@ -319,14 +313,7 @@ class Home extends StatelessWidget {
             Pin(startFraction: 0.7, endFraction: 0.05),
             child:
                 // Adobe XD layer: 'temp_disks' (shape)
-                Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/temp_disks.png'),
-                  fit: BoxFit.fill,
-                ),
-              ),
-            ),
+                LineChartSample2(),
           ),
           Pinned.fromPins(
             Pin(startFraction: 0.29, endFraction: 0.5),
@@ -367,14 +354,7 @@ class Home extends StatelessWidget {
             Pin(startFraction: 0.7, endFraction: 0.05),
             child:
                 // Adobe XD layer: 'temp_resources' (shape)
-                Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/temp_resources.png'),
-                  fit: BoxFit.fill,
-                ),
-              ),
-            ),
+                LineChartSample2(),
           ),
           Pinned.fromPins(
             Pin(startFraction: 0.53, endFraction: 0.26),
@@ -415,14 +395,7 @@ class Home extends StatelessWidget {
             Pin(startFraction: 0.7, endFraction: 0.05),
             child:
                 // Adobe XD layer: 'temp_app' (shape)
-                Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/temp_app.png'),
-                  fit: BoxFit.fill,
-                ),
-              ),
-            ),
+                LineChartSample2(),
           ),
           Pinned.fromPins(
             Pin(startFraction: 0.77, endFraction: 0.02),
