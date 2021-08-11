@@ -10,8 +10,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class SignUpDetail extends StatelessWidget {
   MongoProvider _mongoProvider;
+  final _idController = TextEditingController();
+  final _pwController = TextEditingController();
 
   SignUpDetail() : _mongoProvider = MongoProvider();
+
   @override
   Widget build(BuildContext context) {
     _mongoProvider.open();
@@ -162,8 +165,16 @@ class SignUpDetail extends StatelessWidget {
             child:
                 // Adobe XD layer: 'text_email' (text)
                 Center(
-              child: Text(
-                'Email address',
+              child: TextField(
+                controller: _idController,
+                decoration: InputDecoration(
+                  hintText: 'Email',
+                  hintStyle: TextStyle(
+                    fontFamily: 'HelveticaNeue',
+                    fontSize: 17,
+                    color: const Color(0xff818181),
+                  ),
+                ),
                 style: TextStyle(
                   fontFamily: 'HelveticaNeue',
                   fontSize: 17,
@@ -179,8 +190,16 @@ class SignUpDetail extends StatelessWidget {
             child:
                 // Adobe XD layer: 'text_password' (text)
                 Center(
-              child: Text(
-                'Password',
+              child: TextField(
+                controller: _pwController,
+                decoration: InputDecoration(
+                  hintText: 'Password',
+                  hintStyle: TextStyle(
+                    fontFamily: 'HelveticaNeue',
+                    fontSize: 17,
+                    color: const Color(0xff818181),
+                  ),
+                ),
                 style: TextStyle(
                   fontFamily: 'HelveticaNeue',
                   fontSize: 17,
@@ -217,7 +236,8 @@ class SignUpDetail extends StatelessWidget {
             Pin(startFraction: 0.4, endFraction: 0.53),
             child: TextButton(
                 onPressed: () {
-                  _mongoProvider.showAll();
+                  _mongoProvider.createAccount(
+                      _idController.text, _pwController.text);
                 },
                 child: ButtonFrame('Sign Up')),
           ),
