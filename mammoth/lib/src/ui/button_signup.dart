@@ -3,8 +3,8 @@ import 'package:adobe_xd/pinned.dart';
 import 'sign_in_detail.dart';
 import 'package:adobe_xd/page_link.dart';
 
-class ButtonSignin extends StatelessWidget {
-  ButtonSignin({
+class ButtonSignUp extends StatelessWidget {
+  ButtonSignUp({
     Key? key,
   }) : super(key: key);
   @override
@@ -28,7 +28,7 @@ class ButtonSignin extends StatelessWidget {
             child: Container(
               child: Center(
                 child: Text(
-                  'Sign In',
+                  'Sign Up',
                   style: TextStyle(
                     fontFamily: 'HelveticaNeue',
                     fontSize: 20,

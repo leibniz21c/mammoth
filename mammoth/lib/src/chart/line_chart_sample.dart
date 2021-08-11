@@ -32,24 +32,6 @@ class _LineChartSample2State extends State<LineChartSample2> {
             ),
           ),
         ),
-        SizedBox(
-          width: 60,
-          height: 34,
-          child: TextButton(
-            onPressed: () {
-              setState(() {
-                showAvg = !showAvg;
-              });
-            },
-            child: Text(
-              'avg',
-              style: TextStyle(
-                  fontSize: 12,
-                  color:
-                      showAvg ? Colors.white.withOpacity(0.5) : Colors.white),
-            ),
-          ),
-        ),
       ],
     );
   }
@@ -82,15 +64,7 @@ class _LineChartSample2State extends State<LineChartSample2> {
               fontWeight: FontWeight.bold,
               fontSize: 16),
           getTitles: (value) {
-            switch (value.toInt()) {
-              case 2:
-                return 'MAR';
-              case 5:
-                return 'JUN';
-              case 8:
-                return 'SEP';
-            }
-            return '';
+            return value.toString();
           },
           margin: 8,
         ),
@@ -126,7 +100,7 @@ class _LineChartSample2State extends State<LineChartSample2> {
       lineBarsData: [
         LineChartBarData(
           spots: [
-            FlSpot(0, 3),
+            FlSpot(0, 1),
             FlSpot(2.6, 2),
             FlSpot(4.9, 5),
             FlSpot(6.8, 3.1),

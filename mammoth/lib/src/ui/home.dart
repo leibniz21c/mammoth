@@ -141,15 +141,15 @@ class Home extends StatelessWidget {
                     textAlign: TextAlign.left,
                   ),
                 ),
+                // Profile Section
                 Pinned.fromPins(
-                  // profile
                   Pin(start: 0.0, end: 0.0),
                   Pin(startFraction: 0.91, end: 0.5),
                   child: Stack(
                     children: <Widget>[
                       Pinned.fromPins(
-                        Pin(size: 38.0, start: 15.0),
-                        Pin(size: 38.0, end: 19.0),
+                        Pin(size: 38.0, startFraction: 0.03),
+                        Pin(size: 38.0, middle: 0.5),
                         child:
                             // Adobe XD layer: 'image_profile' (shape)
                             Container(
@@ -165,8 +165,8 @@ class Home extends StatelessWidget {
                         ),
                       ),
                       Pinned.fromPins(
-                        Pin(size: 58.0, start: 62.0),
-                        Pin(size: 16.0, end: 41.0),
+                        Pin(startFraction: 0.25, endFraction: 0),
+                        Pin(startFraction: 0.2, endFraction: 0),
                         child:
                             // Adobe XD layer: 'text_id' (text)
                             Text(
@@ -181,8 +181,8 @@ class Home extends StatelessWidget {
                         ),
                       ),
                       Pinned.fromPins(
-                        Pin(size: 57.0, start: 62.0),
-                        Pin(size: 15.0, end: 25.0),
+                        Pin(startFraction: 0.25, endFraction: 0),
+                        Pin(startFraction: 0.5, endFraction: 0),
                         child:
                             // Adobe XD layer: 'text_viewprofile' (text)
                             Text(
@@ -214,6 +214,31 @@ class Home extends StatelessWidget {
                           _svg_o6ehry,
                           allowDrawingOutsideViewBox: true,
                           fit: BoxFit.fill,
+                        ),
+                      ),
+                      Pinned.fromPins(
+                        Pin(size: 31.0, endFraction: 0.02),
+                        Pin(size: 31.0, startFraction: 0.02),
+                        child:
+                            // Adobe XD layer: 'icon_setting' (shape)
+                            PageLink(
+                          links: [
+                            PageLinkInfo(
+                              transition: LinkTransition.Fade,
+                              ease: Curves.easeOut,
+                              duration: 0.3,
+                              pageBuilder: () => Settings(),
+                            ),
+                          ],
+                          child: Container(
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: const AssetImage(
+                                    'assets/images/icon_setting.png'),
+                                fit: BoxFit.fill,
+                              ),
+                            ),
+                          ),
                         ),
                       ),
                     ],
@@ -410,98 +435,6 @@ class Home extends StatelessWidget {
                 color: const Color(0xfff4f4f4),
               ),
               textAlign: TextAlign.left,
-            ),
-          ),
-
-          // Pinned.fromPins(
-          //   Pin(startFraction: 0.29, endFraction: 0.02),
-          //   Pin(startFraction: 0.61, endFraction: 0.1),
-          //   child:
-          //       // Adobe XD layer: 'grid_bottom' (grid)
-          //       Scrollbar(
-          //     child: SingleChildScrollView(
-          //       child: Wrap(
-          //         alignment: WrapAlignment.center,
-          //         spacing: 2,
-          //         runSpacing: 2,
-          //         children: [
-          //           {
-          //             'text': 'Disks',
-          //           },
-          //           {
-          //             'text': 'CPU/RAM',
-          //           },
-          //           {
-          //             'text': 'Applications',
-          //           }
-          //         ].map((itemData) {
-          //           final text = itemData['text']!;
-          //           return SizedBox(
-          //             width: 228.0,
-          //             height: 264.0,
-          //             child: Stack(
-          //               children: <Widget>[
-          //                 Pinned.fromPins(
-          //                   Pin(start: 0.0, end: 0.0),
-          //                   Pin(start: 0.0, end: 0.0),
-          //                   child: Container(
-          //                     decoration: BoxDecoration(
-          //                       borderRadius: BorderRadius.circular(11.0),
-          //                       color: const Color(0xff202023),
-          //                       boxShadow: [
-          //                         BoxShadow(
-          //                           color: const Color(0xff000000),
-          //                           offset: Offset(0, 3),
-          //                           blurRadius: 6,
-          //                         ),
-          //                       ],
-          //                     ),
-          //                   ),
-          //                 ),
-          //                 Pinned.fromPins(
-          //                   Pin(size: 39.0, start: 29.0),
-          //                   Pin(size: 21.0, start: 23.0),
-          //                   child: Text(
-          //                     text,
-          //                     style: TextStyle(
-          //                       fontFamily: 'HelveticaNeue',
-          //                       fontSize: 18,
-          //                       color: const Color(0xfff4f4f4),
-          //                     ),
-          //                     textAlign: TextAlign.left,
-          //                   ),
-          //                 ),
-          //               ],
-          //             ),
-          //           );
-          //         }).toList(),
-          //       ),
-          //     ),
-          //   ),
-          // ),
-
-          Pinned.fromPins(
-            Pin(size: 31.0, middle: 0.2064),
-            Pin(size: 31.0, end: 28.0),
-            child:
-                // Adobe XD layer: 'icon_setting' (shape)
-                PageLink(
-              links: [
-                PageLinkInfo(
-                  transition: LinkTransition.Fade,
-                  ease: Curves.easeOut,
-                  duration: 0.3,
-                  pageBuilder: () => Settings(),
-                ),
-              ],
-              child: Container(
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: const AssetImage('assets/images/icon_setting.png'),
-                    fit: BoxFit.fill,
-                  ),
-                ),
-              ),
             ),
           ),
         ],

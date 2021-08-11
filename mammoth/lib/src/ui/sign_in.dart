@@ -1,6 +1,9 @@
+import 'package:adobe_xd/adobe_xd.dart';
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
-import 'button_signin.dart';
+import 'package:mammoth/src/ui/button_frame.dart';
+import 'package:mammoth/src/ui/sign_in_detail.dart';
+import 'package:mammoth/src/ui/sign_up_detail.dart';
 
 class SignIn extends StatelessWidget {
   SignIn({
@@ -31,25 +34,28 @@ class SignIn extends StatelessWidget {
             Pin(startFraction: 0.82, endFraction: 0.1),
             child:
                 // Adobe XD layer: 'button_signin' (component)
-                ButtonSignin(),
+                PageLink(links: [
+              PageLinkInfo(
+                transition: LinkTransition.Fade,
+                ease: Curves.easeOut,
+                duration: 0.3,
+                pageBuilder: () => SignInDetail(),
+              ),
+            ], child: ButtonFrame('Sign In')),
           ),
           Pinned.fromPins(
             Pin(startFraction: 0.2, endFraction: 0.2),
-            Pin(startFraction: 0.82, endFraction: 0.1),
+            Pin(startFraction: 0.72, endFraction: 0.2),
             child:
-                // Adobe XD layer: 'text_signin' (text)
-                Center(
-              child: Text(
-                'Sign in',
-                style: TextStyle(
-                  fontFamily: 'HelveticaNeue',
-                  fontSize: 20,
-                  color: const Color(0xff121212),
-                  fontWeight: FontWeight.w500,
-                ),
-                textAlign: TextAlign.left,
+                // Adobe XD layer: 'button_signin' (component)
+                PageLink(links: [
+              PageLinkInfo(
+                transition: LinkTransition.Fade,
+                ease: Curves.easeOut,
+                duration: 0.3,
+                pageBuilder: () => SignUpDetail(),
               ),
-            ),
+            ], child: ButtonFrame('Sign Up')),
           ),
           Pinned.fromPins(
             Pin(startFraction: 0.2, endFraction: 0.2),

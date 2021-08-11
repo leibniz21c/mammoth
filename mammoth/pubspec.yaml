@@ -28,6 +28,9 @@ dependencies:
   adobe_xd: ^2.0.0+1
   provider: ^5.0.0
   fl_chart: ^0.36.3
+  http: ^0.13.3
+  mongo_dart: ^0.7.1
+  dbcrypt: ^2.0.0
 
 dev_dependencies:
   flutter_test:
