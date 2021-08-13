@@ -3,10 +3,20 @@ import 'package:mammoth/src/provider/mongo_provider.dart';
 import 'package:mammoth/src/provider/temp_provider.dart';
 import 'package:mammoth/src/ui/home.dart';
 import 'package:mammoth/src/ui/sign_in.dart';
+import 'package:mammoth/src/ui/sign_up_detail.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (BuildContext context) => MongoProvider(),
+        ),
+      ],
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -19,13 +29,7 @@ class MyApp extends StatelessWidget {
       ),
 
       // Multi Provider wrapping
-      home: MultiProvider(
-        providers: [
-          ChangeNotifierProvider(
-              create: (BuildContext context) => MongoProvider()),
-        ],
-        child: SignIn(),
-      ),
+      home: SignIn(),
     );
   }
 }
