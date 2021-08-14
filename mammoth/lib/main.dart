@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:mammoth/src/provider/influx_provider.dart';
 import 'package:mammoth/src/provider/mongo_provider.dart';
 import 'package:mammoth/src/provider/screen_provider.dart';
-import 'package:mammoth/src/provider/temp_provider.dart';
-import 'package:mammoth/src/ui/home.dart';
 import 'package:mammoth/src/ui/sign_in.dart';
-import 'package:mammoth/src/ui/sign_up_detail.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -16,6 +14,9 @@ void main() {
         ),
         ChangeNotifierProvider(
           create: (BuildContext context) => ScreenProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (BuildContext context) => InfluxProvider(),
         ),
       ],
       child: MyApp(),

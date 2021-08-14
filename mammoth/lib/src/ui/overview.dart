@@ -11,7 +11,7 @@ class OverView extends StatelessWidget {
         PageTitle('Hadoop Overview'),
         Pinned.fromPins(
           Pin(startFraction: 0.03, endFraction: 0.03),
-          Pin(startFraction: 0.15, endFraction: 0.55),
+          Pin(startFraction: 0.17, endFraction: 0.55),
           child:
               // Adobe XD layer: 'container_nodes' (shape)
               Container(

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
+import 'package:mammoth/src/provider/influx_provider.dart';
 import 'package:mammoth/src/ui/main_screen.dart';
 import 'package:mammoth/src/ui/overview.dart';
 import 'package:mammoth/src/ui/sidebar.dart';
+import 'package:http/http.dart' as http;
+import 'package:provider/provider.dart';
 
 class Home extends StatelessWidget {
   dynamic _mainScreen = OverView();
@@ -10,8 +13,15 @@ class Home extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
+  Future<void> showMes(BuildContext context, String query) async {
+    var res = await Provider.of<InfluxProvider>(context, listen: false)
+        .sendQuery(query);
+    print(res.body);
+  }
+
   @override
   Widget build(BuildContext context) {
+    showMes(context, 'show databases');
     return Scaffold(
       backgroundColor: const Color(0xff121212),
       resizeToAvoidBottomInset: false,

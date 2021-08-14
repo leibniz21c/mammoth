@@ -14,7 +14,6 @@ class SignIn extends StatelessWidget {
 
   Future<void> openDB(BuildContext context) async {
     await Provider.of<MongoProvider>(context, listen: false).open();
-    await Provider.of<MongoProvider>(context, listen: false).showAll();
   }
 
   @override

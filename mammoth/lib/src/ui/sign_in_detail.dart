@@ -3,8 +3,6 @@ import 'package:adobe_xd/pinned.dart';
 import 'package:mammoth/src/provider/mongo_provider.dart';
 import 'package:mammoth/src/ui/button_frame.dart';
 import 'package:provider/provider.dart';
-import 'sign_in.dart';
-import 'package:adobe_xd/page_link.dart';
 import 'home.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mammoth/src/mongo/mongo.dart';
-import 'package:mongo_dart/mongo_dart.dart';
-import 'dart:io';
 import 'package:dbcrypt/dbcrypt.dart';
 
 class MongoProvider extends ChangeNotifier {

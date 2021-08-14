@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import 'package:mammoth/src/provider/screen_provider.dart';
-import 'package:mammoth/src/ui/hdfs.dart';
-import 'package:mammoth/src/ui/home.dart';
-import 'package:mammoth/src/ui/resources.dart';
 import 'package:provider/provider.dart';
 import 'settings.dart';
-import 'package:adobe_xd/page_link.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class Sidebar extends StatelessWidget {
