@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mammoth/src/provider/mongo_provider.dart';
+import 'package:mammoth/src/provider/screen_provider.dart';
 import 'package:mammoth/src/provider/temp_provider.dart';
 import 'package:mammoth/src/ui/home.dart';
 import 'package:mammoth/src/ui/sign_in.dart';
@@ -12,6 +13,9 @@ void main() {
       providers: [
         ChangeNotifierProvider(
           create: (BuildContext context) => MongoProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (BuildContext context) => ScreenProvider(),
         ),
       ],
       child: MyApp(),

@@ -5,7 +5,6 @@ import 'package:dbcrypt/dbcrypt.dart';
 class Mongo {
   var _db;
   var _coll;
-  String createMsg = '';
 
   Mongo() {
     _db = Db("mongodb://mammoth:keanu123@27.96.131.108:20003/admin");
@@ -55,20 +54,15 @@ class Mongo {
 
   // }
 
-  Future<void> login(String email, String pw) async {
-    String hashed = new DBCrypt().hashpw(pw, new DBCrypt().gensalt());
-    var user = await _coll.find({'email': email, 'password': hashed}).toList();
-    if (user.isEmpty) {
-      print('Login failed');
-    } else {
-      print('Welcome, ${user.first['name']}');
-    }
+  Future<dynamic> login(String email, String pw) async {
+    var user = await this._coll.find({'email': email}).toList();
+    return user;
+  }
+
+  Future<dynamic> update(String email, String field, dynamic value) async {
+    var res = await this
+        ._coll
+        .updateOne(where.eq('email', email), modify.set(field, value));
+    return res;
   }
 }
-
-// Future<void> initDB(DbCollection coll) async {
-//   await coll.insertMany([
-//     {'name': 'Yang Hee Sung', 'email': 'hee@sung.com', 'password': '1111'},
-//     {'name': 'Jeong Joo Yeong', 'email': 'joo@yeong.com', 'password': '2222'},
-//     {'name': 'Jeong Yeong Jun', 'email': 'yeong@jun.com', 'password': '3333'},
-//   ]);

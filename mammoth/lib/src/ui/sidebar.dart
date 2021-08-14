@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
+import 'package:mammoth/src/provider/screen_provider.dart';
 import 'package:mammoth/src/ui/hdfs.dart';
 import 'package:mammoth/src/ui/home.dart';
 import 'package:mammoth/src/ui/resources.dart';
+import 'package:provider/provider.dart';
 import 'settings.dart';
 import 'package:adobe_xd/page_link.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -18,19 +20,19 @@ class Sidebar extends StatelessWidget {
       Pin(startFraction: 0.0, endFraction: 0.8),
       Pin(start: -0.5, end: 0.0),
       child:
-      // Adobe XD layer: 'container_left' (group)
-      Stack(
+          // Adobe XD layer: 'container_left' (group)
+          Stack(
         children: <Widget>[
           Pinned.fromPins(
-            Pin(startFraction: 0.07, endFraction: 0.07),
+            Pin(startFraction: 0.07, endFraction: 0.0),
             Pin(startFraction: 0.1, endFraction: 0.85),
             child:
-            // Adobe XD layer: 'text_title' (text)
-            Text(
+                // Adobe XD layer: 'text_title' (text)
+                Text(
               'Hadoop Monitor',
               style: TextStyle(
                 fontFamily: 'HelveticaNeue',
-                fontSize: 25,
+                fontSize: 21,
                 color: const Color(0xfff4f4f4),
                 fontWeight: FontWeight.w700,
               ),
@@ -42,8 +44,8 @@ class Sidebar extends StatelessWidget {
             Pin(size: 23.0, startFraction: 0.07),
             Pin(size: 23.0, startFraction: 0.17),
             child:
-            // Adobe XD layer: 'icon_yarn' (shape)
-            Container(
+                // Adobe XD layer: 'icon_yarn' (shape)
+                Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: const AssetImage('assets/images/icon_yarn.png'),
@@ -56,16 +58,12 @@ class Sidebar extends StatelessWidget {
             Pin(startFraction: 0.2, endFraction: 0.0),
             Pin(startFraction: 0.17, endFraction: 0.78),
             child:
-            // Adobe XD layer: 'text_yarn' (text)
-            PageLink(
-              links: [
-                PageLinkInfo(
-                  transition: LinkTransition.Fade,
-                  ease: Curves.easeOut,
-                  duration: 0.3,
-                  pageBuilder: () => Home(),
-                ),
-              ],
+                // Adobe XD layer: 'text_yarn' (text)
+                GestureDetector(
+              onTap: () {
+                Provider.of<ScreenProvider>(context, listen: false)
+                    .changeScreen(Screen.Overview);
+              },
               child: Text(
                 'Home',
                 style: TextStyle(
@@ -82,8 +80,8 @@ class Sidebar extends StatelessWidget {
             Pin(size: 23.0, startFraction: 0.07),
             Pin(size: 23.0, startFraction: 0.225),
             child:
-            // Adobe XD layer: 'icon_hdfs' (shape)
-            Container(
+                // Adobe XD layer: 'icon_hdfs' (shape)
+                Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: const AssetImage('assets/images/icon_yarn.png'),
@@ -96,16 +94,12 @@ class Sidebar extends StatelessWidget {
             Pin(startFraction: 0.2, endFraction: 0.07),
             Pin(startFraction: 0.23, endFraction: 0.72),
             child:
-            // Adobe XD layer: 'text_hdfs' (text)
-            PageLink(
-              links: [
-                PageLinkInfo(
-                  transition: LinkTransition.Fade,
-                  ease: Curves.easeOut,
-                  duration: 0.3,
-                  pageBuilder: () => Resources(),
-                ),
-              ],
+                // Adobe XD layer: 'text_hdfs' (text)
+                GestureDetector(
+              onTap: () {
+                Provider.of<ScreenProvider>(context, listen: false)
+                    .changeScreen(Screen.Resources);
+              },
               child: Text(
                 'Resources',
                 style: TextStyle(
@@ -122,12 +116,11 @@ class Sidebar extends StatelessWidget {
             Pin(size: 42.0, startFraction: 0.04),
             Pin(size: 42.0, startFraction: 0.275),
             child:
-            // Adobe XD layer: 'icon_mapreduce' (shape)
-            Container(
+                // Adobe XD layer: 'icon_mapreduce' (shape)
+                Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: const AssetImage(
-                      'assets/images/icon_hdfs.png'),
+                  image: const AssetImage('assets/images/icon_hdfs.png'),
                   fit: BoxFit.fill,
                 ),
               ),
@@ -137,16 +130,12 @@ class Sidebar extends StatelessWidget {
             Pin(startFraction: 0.2, endFraction: 0.07),
             Pin(startFraction: 0.29, endFraction: 0.67),
             child:
-            // Adobe XD layer: 'text_mapreduce' (text)
-            PageLink(
-              links: [
-                PageLinkInfo(
-                  transition: LinkTransition.Fade,
-                  ease: Curves.easeOut,
-                  duration: 0.3,
-                  pageBuilder: () => HDFS(),
-                ),
-              ],
+                // Adobe XD layer: 'text_mapreduce' (text)
+                GestureDetector(
+              onTap: () {
+                Provider.of<ScreenProvider>(context, listen: false)
+                    .changeScreen(Screen.HDFS);
+              },
               child: Text(
                 'HDFS',
                 style: TextStyle(
@@ -162,12 +151,11 @@ class Sidebar extends StatelessWidget {
             Pin(size: 42.0, startFraction: 0.04),
             Pin(size: 42.0, startFraction: 0.34),
             child:
-            // Adobe XD layer: 'icon_mapreduce' (shape)
-            Container(
+                // Adobe XD layer: 'icon_mapreduce' (shape)
+                Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: const AssetImage(
-                      'assets/images/icon_mapreduce.png'),
+                  image: const AssetImage('assets/images/icon_mapreduce.png'),
                   fit: BoxFit.fill,
                 ),
               ),
@@ -175,17 +163,23 @@ class Sidebar extends StatelessWidget {
           ),
           Pinned.fromPins(
             Pin(startFraction: 0.2, endFraction: 0.07),
-            Pin(startFraction: 0.35, endFraction: 0.62),
+            Pin(startFraction: 0.35, endFraction: 0.61),
             child:
-            // Adobe XD layer: 'text_mapreduce' (text)
-            Text(
-              'Applications',
-              style: TextStyle(
-                fontFamily: 'HelveticaNeue',
-                fontSize: 17,
-                color: const Color(0xfff4f4f4),
+                // Adobe XD layer: 'text_mapreduce' (text)
+                GestureDetector(
+              onTap: () {
+                Provider.of<ScreenProvider>(context, listen: false)
+                    .changeScreen(Screen.Applications);
+              },
+              child: Text(
+                'Applications',
+                style: TextStyle(
+                  fontFamily: 'HelveticaNeue',
+                  fontSize: 17,
+                  color: const Color(0xfff4f4f4),
+                ),
+                textAlign: TextAlign.left,
               ),
-              textAlign: TextAlign.left,
             ),
           ),
 
@@ -199,8 +193,8 @@ class Sidebar extends StatelessWidget {
                   Pin(size: 38.0, startFraction: 0.03),
                   Pin(size: 38.0, middle: 0.5),
                   child:
-                  // Adobe XD layer: 'image_profile' (shape)
-                  Container(
+                      // Adobe XD layer: 'image_profile' (shape)
+                      Container(
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         image: const AssetImage(
@@ -216,8 +210,8 @@ class Sidebar extends StatelessWidget {
                   Pin(startFraction: 0.25, endFraction: 0),
                   Pin(startFraction: 0.2, endFraction: 0),
                   child:
-                  // Adobe XD layer: 'text_id' (text)
-                  Text(
+                      // Adobe XD layer: 'text_id' (text)
+                      Text(
                     'yejin9989',
                     style: TextStyle(
                       fontFamily: 'HelveticaNeue',
@@ -232,8 +226,8 @@ class Sidebar extends StatelessWidget {
                   Pin(startFraction: 0.25, endFraction: 0),
                   Pin(startFraction: 0.5, endFraction: 0),
                   child:
-                  // Adobe XD layer: 'text_viewprofile' (text)
-                  Text(
+                      // Adobe XD layer: 'text_viewprofile' (text)
+                      Text(
                     'View profile',
                     style: TextStyle(
                       fontFamily: 'HelveticaNeue',
@@ -268,16 +262,12 @@ class Sidebar extends StatelessWidget {
                   Pin(size: 31.0, endFraction: 0.02),
                   Pin(size: 31.0, startFraction: 0.02),
                   child:
-                  // Adobe XD layer: 'icon_setting' (shape)
-                  PageLink(
-                    links: [
-                      PageLinkInfo(
-                        transition: LinkTransition.Fade,
-                        ease: Curves.easeOut,
-                        duration: 0.3,
-                        pageBuilder: () => Settings(),
-                      ),
-                    ],
+                      // Adobe XD layer: 'icon_setting' (shape)
+                      GestureDetector(
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Settings()));
+                    },
                     child: Container(
                       decoration: BoxDecoration(
                         image: DecorationImage(
@@ -308,7 +298,7 @@ class Sidebar extends StatelessWidget {
   }
 }
 
-  const String _svg_o6ehry =
-      '<svg viewBox="-0.5 711.5 249.0 1.0" ><path transform="translate(-0.5, 711.5)" d="M 0 0 L 249 0" fill="none" stroke="#343434" stroke-width="0.5" stroke-miterlimit="4" stroke-linecap="butt" /></svg>';
-  const String _svg_am513k =
-      '<svg viewBox="248.5 0.5 1.0 768.0" ><path transform="translate(248.5, 0.5)" d="M 0 0 L 0 768" fill="none" stroke="#343434" stroke-width="0.5" stroke-miterlimit="4" stroke-linecap="butt" /></svg>';
+const String _svg_o6ehry =
+    '<svg viewBox="-0.5 711.5 249.0 1.0" ><path transform="translate(-0.5, 711.5)" d="M 0 0 L 249 0" fill="none" stroke="#343434" stroke-width="0.5" stroke-miterlimit="4" stroke-linecap="butt" /></svg>';
+const String _svg_am513k =
+    '<svg viewBox="248.5 0.5 1.0 768.0" ><path transform="translate(248.5, 0.5)" d="M 0 0 L 0 768" fill="none" stroke="#343434" stroke-width="0.5" stroke-miterlimit="4" stroke-linecap="butt" /></svg>';

@@ -14,16 +14,11 @@ class SignUpDetail extends StatelessWidget {
   final _nameController = TextEditingController();
   final _pwController = TextEditingController();
 
-  Future<void> openDB(BuildContext context) async {
-    await Provider.of<MongoProvider>(context, listen: false).open();
-    await Provider.of<MongoProvider>(context, listen: false).showAll();
-  }
-
   @override
   Widget build(BuildContext context) {
-    openDB(context);
     return Scaffold(
       backgroundColor: const Color(0xff121212),
+      resizeToAvoidBottomInset: false,
       body: Consumer<MongoProvider>(
         builder: (context, provider, widget) {
           return Stack(
@@ -98,16 +93,11 @@ class SignUpDetail extends StatelessWidget {
                 Pin(startFraction: 0.13, endFraction: 0.12),
                 child:
                     // Adobe XD layer: 'button_cancel' (text)
-                    Container(
-                  child: PageLink(
-                    links: [
-                      PageLinkInfo(
-                        transition: LinkTransition.Fade,
-                        ease: Curves.easeOut,
-                        duration: 0.3,
-                        pageBuilder: () => SignIn(),
-                      ),
-                    ],
+                    GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Container(
                     child: Text(
                       'Cancel',
                       style: TextStyle(

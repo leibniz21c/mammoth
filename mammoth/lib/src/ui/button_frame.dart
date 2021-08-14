@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 
 class ButtonFrame extends StatelessWidget {
   String _text;
-  ButtonFrame(this._text);
+  Color buttonColor;
+  Color textColor;
+  ButtonFrame(this._text,
+      {this.buttonColor = const Color(0xffffffff),
+      this.textColor = const Color(0xff121212)});
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -14,14 +18,14 @@ class ButtonFrame extends StatelessWidget {
               style: TextStyle(
                 fontFamily: 'HelveticaNeue',
                 fontSize: 20,
-                color: const Color(0xff121212),
+                color: textColor,
                 fontWeight: FontWeight.w500,
               ),
             ),
           ),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30.0),
-            color: Color(0xffffffff),
+            color: buttonColor,
             border: Border.all(width: 1.0, color: const Color(0xff707070)),
           ),
         ),
