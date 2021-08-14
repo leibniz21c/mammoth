@@ -5,9 +5,10 @@ import 'package:dbcrypt/dbcrypt.dart';
 class Mongo {
   var _db;
   var _coll;
+  String createMsg = '';
+
   Mongo() {
-    _db = Db(
-        "mongodb://keanu:keanu123!@76a85.pub-vpc.mg.naverncp.com:17017/admin");
+    _db = Db("mongodb://mammoth:keanu123@27.96.131.108:20003/admin");
     _coll = _db.collection('find');
   }
 
@@ -15,17 +16,40 @@ class Mongo {
   Future<void> close() async => await _db.close();
   Future<void> showAll() async => await _coll.find().forEach((v) => print(v));
 
-  Future<void> createAccount(String email, String name, String pw) async {
+  Future<bool> createAccount(String email, String name, String pw) async {
     // 이메일 입력 후 겹치는 이메일 없으면 이름, pw 입력하고 가입
 
     var user = await _coll.find({'email': email}).toList(); // 입력한 email 있는지 조회
 
     if (user.isEmpty) {
       String hashed = new DBCrypt().hashpw(pw, new DBCrypt().gensalt());
-      await _coll.insertOne({'name': name, 'email': email, 'password': hashed});
-      print('Your account has been created!');
+      await _coll.insertOne(<String, dynamic>{
+        "email": email,
+        "password": hashed,
+        "ipv4": "",
+        "port": {
+          "50010": 0,
+          "50020": 0,
+          "50070": 0,
+          "50075": 0,
+          "50090": 0,
+          "8020": 0,
+          "9000": 0,
+          "10020": 0,
+          "19888": 0,
+          "8030": 0,
+          "8031": 0,
+          "8032": 0,
+          "8033": 0,
+          "8040": 0,
+          "8042": 0,
+          "8088": 0
+        },
+        "joinDate": new DateTime.now().toIso8601String(),
+      });
+      return true;
     } else {
-      print('This Email already exists');
+      return false;
     }
   }
 

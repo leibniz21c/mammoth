@@ -48,14 +48,13 @@ class SignIn extends StatelessWidget {
             Pin(startFraction: 0.72, endFraction: 0.2),
             child:
                 // Adobe XD layer: 'button_signin' (component)
-                PageLink(links: [
-              PageLinkInfo(
-                transition: LinkTransition.Fade,
-                ease: Curves.easeOut,
-                duration: 0.3,
-                pageBuilder: () => SignUpDetail(),
-              ),
-            ], child: ButtonFrame('Sign Up')),
+                GestureDetector(
+              child: ButtonFrame('Sign Up'),
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => SignUpDetail()));
+              },
+            ),
           ),
           Pinned.fromPins(
             Pin(startFraction: 0.2, endFraction: 0.2),

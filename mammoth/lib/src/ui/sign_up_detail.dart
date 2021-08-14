@@ -10,21 +10,18 @@ import 'home.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class SignUpDetail extends StatelessWidget {
-  Mongo _mongo;
   final _emailController = TextEditingController();
   final _nameController = TextEditingController();
   final _pwController = TextEditingController();
 
-  SignUpDetail() : _mongo = Mongo();
-
-  Future<void> openDB() async {
-    await _mongo.open();
-    await _mongo.showAll();
+  Future<void> openDB(BuildContext context) async {
+    await Provider.of<MongoProvider>(context, listen: false).open();
+    await Provider.of<MongoProvider>(context, listen: false).showAll();
   }
 
   @override
   Widget build(BuildContext context) {
-    openDB();
+    openDB(context);
     return Scaffold(
       backgroundColor: const Color(0xff121212),
       body: Consumer<MongoProvider>(
@@ -126,7 +123,7 @@ class SignUpDetail extends StatelessWidget {
               // account box
               Pinned.fromPins(
                 Pin(startFraction: 0.15, endFraction: 0.15),
-                Pin(startFraction: 0.22, endFraction: 0.585),
+                Pin(startFraction: 0.22, endFraction: 1 - 0.56),
                 child:
                     // Adobe XD layer: 'edittext_id' (shape)
                     Container(
@@ -148,29 +145,7 @@ class SignUpDetail extends StatelessWidget {
               ),
               Pinned.fromPins(
                 Pin(startFraction: 0.15, endFraction: 0.15),
-                Pin(size: 1.0, startFraction: 0.285),
-                child:
-                    // Adobe XD layer: 'line2' (shape)
-                    SvgPicture.string(
-                  _svg_p37uj7,
-                  allowDrawingOutsideViewBox: true,
-                  fit: BoxFit.fill,
-                ),
-              ),
-              Pinned.fromPins(
-                Pin(startFraction: 0.15, endFraction: 0.15),
-                Pin(size: 1.0, startFraction: 0.35),
-                child:
-                    // Adobe XD layer: 'inner_line' (shape)
-                    SvgPicture.string(
-                  _svg_g5wier,
-                  allowDrawingOutsideViewBox: true,
-                  fit: BoxFit.fill,
-                ),
-              ),
-              Pinned.fromPins(
-                Pin(startFraction: 0.15, endFraction: 0.15),
-                Pin(startFraction: 0.22, endFraction: 0.715),
+                Pin(startFraction: 0.22, endFraction: 1 - 0.34),
                 child:
                     // Adobe XD layer: 'text_email' (text)
                     Center(
@@ -193,9 +168,10 @@ class SignUpDetail extends StatelessWidget {
                   ),
                 ),
               ),
+
               Pinned.fromPins(
                 Pin(startFraction: 0.15, endFraction: 0.15),
-                Pin(startFraction: 0.285, endFraction: 0.65),
+                Pin(startFraction: 0.34, endFraction: 1 - 0.45),
                 child:
                     // Adobe XD layer: 'text_name' (text)
                     Center(
@@ -218,9 +194,10 @@ class SignUpDetail extends StatelessWidget {
                   ),
                 ),
               ),
+
               Pinned.fromPins(
                 Pin(startFraction: 0.15, endFraction: 0.15),
-                Pin(startFraction: 0.35, endFraction: 0.585),
+                Pin(startFraction: 0.45, endFraction: 1 - 0.56),
                 child:
                     // Adobe XD layer: 'text_password' (text)
                     Center(
@@ -243,35 +220,22 @@ class SignUpDetail extends StatelessWidget {
                   ),
                 ),
               ),
+
               Pinned.fromPins(
                 Pin(startFraction: 0.17, endFraction: 0.17),
-                Pin(startFraction: 0.465, endFraction: 0.465),
-                child:
-                    // Adobe XD layer: 'button_signin' (shape)
-                    PageLink(
-                  links: [
-                    PageLinkInfo(
-                      transition: LinkTransition.Fade,
-                      ease: Curves.easeOut,
-                      duration: 0.3,
-                      pageBuilder: () => Home(),
-                    ),
-                  ],
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30.0),
-                      color: const Color(0xfff5f5f5),
-                    ),
-                  ),
+                Pin(startFraction: 0.56, endFraction: 1 - 0.66),
+                child: Center(
+                  child: Provider.of<MongoProvider>(context).createMsg,
                 ),
               ),
               Pinned.fromPins(
                 Pin(startFraction: 0.17, endFraction: 0.17),
-                Pin(startFraction: 0.465, endFraction: 0.465),
-                child: TextButton(
-                    onPressed: () {
-                      _mongo.createAccount(_emailController.text,
-                          _nameController.text, _pwController.text);
+                Pin(startFraction: 0.66, endFraction: 1 - 0.76),
+                child: GestureDetector(
+                    onTap: () {
+                      Provider.of<MongoProvider>(context, listen: false)
+                          .createAccount(_emailController.text,
+                              _nameController.text, _pwController.text);
                     },
                     child: ButtonFrame('Sign Up')),
               ),
