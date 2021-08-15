@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-enum Screen { Overview, Resources, HDFS, Applications }
+enum Screen { Overview, Resources, HDFS, Applications, HDFSWeb }
 
 class ScreenProvider extends ChangeNotifier {
   Screen screen = Screen.Overview;

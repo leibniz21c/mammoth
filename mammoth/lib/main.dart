@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mammoth/src/provider/influx_provider.dart';
 import 'package:mammoth/src/provider/mongo_provider.dart';
 import 'package:mammoth/src/provider/screen_provider.dart';
+import 'package:mammoth/src/ui/hdfs_web.dart';
 import 'package:mammoth/src/ui/sign_in.dart';
 import 'package:provider/provider.dart';
 

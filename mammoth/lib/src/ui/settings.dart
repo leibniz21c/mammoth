@@ -17,17 +17,13 @@ class _SettingsState extends State<Settings> {
   String _email = '';
   var _user;
 
-  Future<void> getInfo(BuildContext context) async {
-    this._user = Provider.of<MongoProvider>(context).getUser();
+  @override
+  Widget build(BuildContext context) {
+    this._user = Provider.of<MongoProvider>(context).user;
     this._email = this._user.first['email'];
     this._ip = this._user.first['ipv4'];
     this._port = this._user.first['port'];
-    print(this._port);
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    getInfo(context);
+    print(this._user);
     return Scaffold(
       backgroundColor: const Color(0xff121212),
       resizeToAvoidBottomInset: false,
@@ -72,7 +68,7 @@ class _SettingsState extends State<Settings> {
                         child: TextFormField(
                           initialValue: this._ip,
                           onSaved: (val) {
-                            this._ip = val!;
+                            this._ip = val.toString();
                           },
                           style: TextStyle(
                             fontFamily: 'HelveticaNeue',
@@ -230,22 +226,26 @@ class _SettingsState extends State<Settings> {
                                       ),
                                     ),
                                     Pinned.fromPins(
-                                      Pin(size: 50.0, start: 22.0),
+                                      Pin(startFraction: 0.0, endFraction: 0.5),
                                       Pin(size: 22.0, middle: 0.5),
                                       child:
                                           // Adobe XD layer: 'edittext_hostip' (text)
-                                          TextFormField(
-                                        initialValue: host,
-                                        onSaved: (val) {
-                                          this._port[guest] = val;
-                                        },
-                                        style: TextStyle(
-                                          fontFamily: 'HelveticaNeue',
-                                          fontSize: 18,
-                                          color: const Color(0xffffffff),
-                                          fontWeight: FontWeight.w700,
+                                          Padding(
+                                        padding: const EdgeInsets.fromLTRB(
+                                            20.0, 0, 0, 0),
+                                        child: TextFormField(
+                                          initialValue: host,
+                                          onSaved: (val) {
+                                            this._port[guest] = val;
+                                          },
+                                          style: TextStyle(
+                                            fontFamily: 'HelveticaNeue',
+                                            fontSize: 18,
+                                            color: const Color(0xffffffff),
+                                            fontWeight: FontWeight.w700,
+                                          ),
+                                          textAlign: TextAlign.left,
                                         ),
-                                        textAlign: TextAlign.left,
                                       ),
                                     ),
                                     Pinned.fromPins(
@@ -279,8 +279,10 @@ class _SettingsState extends State<Settings> {
                     child: GestureDetector(
                       onTap: () async {
                         this.formKey.currentState!.save();
+
                         await Provider.of<MongoProvider>(context, listen: false)
                             .update(this._email, 'ipv4', this._ip);
+
                         await Provider.of<MongoProvider>(context, listen: false)
                             .update(this._email, 'port', this._port);
 

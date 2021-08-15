@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
+import 'package:mammoth/src/chart/line_chart_frame.dart';
 import 'package:mammoth/src/chart/line_chart_sample.dart';
+import 'package:mammoth/src/provider/influx_provider.dart';
 import 'package:mammoth/src/ui/page_title.dart';
+import 'package:provider/provider.dart';
 
 class Resources extends StatelessWidget {
   Resources({
     Key? key,
   }) : super(key: key);
 
+  var influx;
   @override
   Widget build(BuildContext context) {
+    this.influx = Provider.of<InfluxProvider>(context);
     return Stack(
       children: [
         PageTitle('Resources'),
@@ -50,7 +55,17 @@ class Resources extends StatelessWidget {
                 Pinned.fromPins(
                   Pin(startFraction: 0.025, endFraction: 0.025),
                   Pin(startFraction: 0.23, endFraction: 0.1),
-                  child: LineChartSample2(),
+                  child: LineChartFrame(
+                      this
+                          .influx
+                          .yarnClusterMetrics
+                          .sublist(this.influx.yarnClusterMetrics.length - 10)
+                          .map((e) => e[YarnClusterMetricsOrder
+                              .allocatedVirtualCores.index])
+                          .toList(),
+                      this.influx.yarnClusterMetrics.last[
+                          YarnClusterMetricsOrder.totalVirtualCores.index],
+                      'vCores'),
                 ),
               ],
             ),
@@ -93,7 +108,17 @@ class Resources extends StatelessWidget {
                 Pinned.fromPins(
                   Pin(startFraction: 0.025, endFraction: 0.025),
                   Pin(startFraction: 0.23, endFraction: 0.1),
-                  child: LineChartSample2(),
+                  child: LineChartFrame(
+                      this
+                          .influx
+                          .hdfsInfo
+                          .sublist(this.influx.hdfsInfo.length - 10)
+                          .map((e) => e[HdfsInfoOrder.used.index] / 1073741824)
+                          .toList(),
+                      (this.influx.hdfsInfo.last[HdfsInfoOrder.size.index] /
+                              1073741824)
+                          .toInt(),
+                      'memory'),
                 ),
               ],
             ),

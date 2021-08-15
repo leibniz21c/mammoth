@@ -2,12 +2,18 @@ import 'package:adobe_xd/adobe_xd.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mammoth/src/chart/line_chart_sample.dart';
+import 'package:mammoth/src/provider/influx_provider.dart';
 import 'package:mammoth/src/ui/page_title.dart';
+import 'package:provider/provider.dart';
 
 class Applications extends StatelessWidget {
+  Applications({
+    Key? key,
+  }) : super(key: key);
+  var influx;
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
+    this.influx = Provider.of<InfluxProvider>(context);
     return Stack(
       children: [
         PageTitle('Applications'),
@@ -34,7 +40,7 @@ class Applications extends StatelessWidget {
                   child:
                       // Adobe XD layer: 'text_nodes' (text)
                       Text(
-                    'Nodes',
+                    'Submitted',
                     style: TextStyle(
                       fontFamily: 'HelveticaNeue',
                       fontSize: 15,
@@ -50,7 +56,11 @@ class Applications extends StatelessWidget {
                     fit: BoxFit.fitHeight,
                     child: Center(
                       child: Text(
-                        '0',
+                        this
+                            .influx
+                            .yarnClusterAppStatistics
+                            .last[YarnClusterAppStatisticsOrder.SUBMITTED.index]
+                            .toString(),
                         style: TextStyle(
                           color: Colors.white,
                         ),
@@ -85,7 +95,7 @@ class Applications extends StatelessWidget {
                   child:
                       // Adobe XD layer: 'text_nodes' (text)
                       Text(
-                    'Nodes',
+                    'Accepted',
                     style: TextStyle(
                       fontFamily: 'HelveticaNeue',
                       fontSize: 15,
@@ -101,7 +111,11 @@ class Applications extends StatelessWidget {
                     fit: BoxFit.fitHeight,
                     child: Center(
                       child: Text(
-                        '0',
+                        this
+                            .influx
+                            .yarnClusterAppStatistics
+                            .last[YarnClusterAppStatisticsOrder.ACCEPTED.index]
+                            .toString(),
                         style: TextStyle(
                           color: Colors.white,
                         ),
@@ -136,7 +150,7 @@ class Applications extends StatelessWidget {
                   child:
                       // Adobe XD layer: 'text_nodes' (text)
                       Text(
-                    'Nodes',
+                    'Running',
                     style: TextStyle(
                       fontFamily: 'HelveticaNeue',
                       fontSize: 15,
@@ -152,7 +166,11 @@ class Applications extends StatelessWidget {
                     fit: BoxFit.fitHeight,
                     child: Center(
                       child: Text(
-                        '0',
+                        this
+                            .influx
+                            .yarnClusterAppStatistics
+                            .last[YarnClusterAppStatisticsOrder.RUNNING.index]
+                            .toString(),
                         style: TextStyle(
                           color: Colors.white,
                         ),
@@ -187,7 +205,7 @@ class Applications extends StatelessWidget {
                   child:
                       // Adobe XD layer: 'text_nodes' (text)
                       Text(
-                    'Nodes',
+                    'Finished',
                     style: TextStyle(
                       fontFamily: 'HelveticaNeue',
                       fontSize: 15,
@@ -203,7 +221,11 @@ class Applications extends StatelessWidget {
                     fit: BoxFit.fitHeight,
                     child: Center(
                       child: Text(
-                        '0',
+                        this
+                            .influx
+                            .yarnClusterAppStatistics
+                            .last[YarnClusterAppStatisticsOrder.FINISHED.index]
+                            .toString(),
                         style: TextStyle(
                           color: Colors.white,
                         ),
@@ -238,7 +260,7 @@ class Applications extends StatelessWidget {
                   child:
                       // Adobe XD layer: 'text_nodes' (text)
                       Text(
-                    'Nodes',
+                    'New',
                     style: TextStyle(
                       fontFamily: 'HelveticaNeue',
                       fontSize: 15,
@@ -254,7 +276,11 @@ class Applications extends StatelessWidget {
                     fit: BoxFit.fitHeight,
                     child: Center(
                       child: Text(
-                        '0',
+                        this
+                            .influx
+                            .yarnClusterAppStatistics
+                            .last[YarnClusterAppStatisticsOrder.NEW.index]
+                            .toString(),
                         style: TextStyle(
                           color: Colors.white,
                         ),
@@ -289,7 +315,7 @@ class Applications extends StatelessWidget {
                   child:
                       // Adobe XD layer: 'text_nodes' (text)
                       Text(
-                    'Nodes',
+                    'Failed',
                     style: TextStyle(
                       fontFamily: 'HelveticaNeue',
                       fontSize: 15,
@@ -305,7 +331,11 @@ class Applications extends StatelessWidget {
                     fit: BoxFit.fitHeight,
                     child: Center(
                       child: Text(
-                        '0',
+                        this
+                            .influx
+                            .yarnClusterAppStatistics
+                            .last[YarnClusterAppStatisticsOrder.FAILED.index]
+                            .toString(),
                         style: TextStyle(
                           color: Colors.white,
                         ),
@@ -340,7 +370,7 @@ class Applications extends StatelessWidget {
                   child:
                       // Adobe XD layer: 'text_nodes' (text)
                       Text(
-                    'Nodes',
+                    'New Saving',
                     style: TextStyle(
                       fontFamily: 'HelveticaNeue',
                       fontSize: 15,
@@ -356,7 +386,12 @@ class Applications extends StatelessWidget {
                     fit: BoxFit.fitHeight,
                     child: Center(
                       child: Text(
-                        '0',
+                        this
+                            .influx
+                            .yarnClusterAppStatistics
+                            .last[
+                                YarnClusterAppStatisticsOrder.NEW_SAVING.index]
+                            .toString(),
                         style: TextStyle(
                           color: Colors.white,
                         ),
@@ -391,7 +426,7 @@ class Applications extends StatelessWidget {
                   child:
                       // Adobe XD layer: 'text_nodes' (text)
                       Text(
-                    'Nodes',
+                    'Killed',
                     style: TextStyle(
                       fontFamily: 'HelveticaNeue',
                       fontSize: 15,
@@ -407,7 +442,11 @@ class Applications extends StatelessWidget {
                     fit: BoxFit.fitHeight,
                     child: Center(
                       child: Text(
-                        '0',
+                        this
+                            .influx
+                            .yarnClusterAppStatistics
+                            .last[YarnClusterAppStatisticsOrder.KILLED.index]
+                            .toString(),
                         style: TextStyle(
                           color: Colors.white,
                         ),
@@ -434,8 +473,27 @@ class Applications extends StatelessWidget {
                 ),
               ],
             ),
+            child: Stack(
+              children: [
+                Pinned.fromPins(
+                  Pin(startFraction: 0.03, endFraction: 0.03),
+                  Pin(startFraction: 0.05, endFraction: 0.41),
+                  child:
+                      // Adobe XD layer: 'text_nodes' (text)
+                      Text(
+                    'Nodes',
+                    style: TextStyle(
+                      fontFamily: 'HelveticaNeue',
+                      fontSize: 15,
+                      color: const Color(0xfff4f4f4),
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                ),
+              ],
+            ),
           ),
-        )
+        ),
       ],
     );
   }

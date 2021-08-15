@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
+import 'package:mammoth/src/provider/mongo_provider.dart';
 import 'package:mammoth/src/provider/screen_provider.dart';
 import 'package:provider/provider.dart';
 import 'settings.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class Sidebar extends StatelessWidget {
+  String _name = 'User';
   Sidebar({
     Key? key,
   }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
+    this._name =
+        Provider.of<MongoProvider>(context, listen: false).user.first['name'];
     return Pinned.fromPins(
       Pin(startFraction: 0.0, endFraction: 0.8),
       Pin(start: -0.5, end: 0.0),
@@ -208,7 +211,7 @@ class Sidebar extends StatelessWidget {
                   child:
                       // Adobe XD layer: 'text_id' (text)
                       Text(
-                    'yejin9989',
+                    this._name,
                     style: TextStyle(
                       fontFamily: 'HelveticaNeue',
                       fontSize: 13,

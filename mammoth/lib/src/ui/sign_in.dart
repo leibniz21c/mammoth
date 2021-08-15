@@ -11,7 +11,6 @@ class SignIn extends StatelessWidget {
   SignIn({
     Key? key,
   }) : super(key: key);
-
   Future<void> openDB(BuildContext context) async {
     await Provider.of<MongoProvider>(context, listen: false).open();
   }

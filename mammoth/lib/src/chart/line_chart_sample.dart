@@ -198,7 +198,7 @@ class _LineChartSample2State extends State<LineChartSample2> {
       lineBarsData: [
         LineChartBarData(
           spots: [
-            FlSpot(0, 3.44),
+            FlSpot(0, 3.24),
             FlSpot(2.6, 3.44),
             FlSpot(4.9, 3.44),
             FlSpot(6.8, 3.44),

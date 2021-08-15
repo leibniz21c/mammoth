@@ -6,7 +6,7 @@ class Mongo {
   var _coll;
 
   Mongo() {
-    _db = Db("mongodb://mammoth:keanu123@27.96.131.108:20003/admin");
+    _db = Db("mongodb://mammoth:keanu123@27.96.131.108:27017/test");
     _coll = _db.collection('find');
   }
 
@@ -22,26 +22,27 @@ class Mongo {
     if (user.isEmpty) {
       String hashed = new DBCrypt().hashpw(pw, new DBCrypt().gensalt());
       await _coll.insertOne(<String, dynamic>{
+        "name": name,
         "email": email,
         "password": hashed,
-        "ipv4": "",
+        "ipv4": "0.0.0.0",
         "port": {
-          "50010": 0,
-          "50020": 0,
-          "50070": 0,
-          "50075": 0,
-          "50090": 0,
-          "8020": 0,
-          "9000": 0,
-          "10020": 0,
-          "19888": 0,
-          "8030": 0,
-          "8031": 0,
-          "8032": 0,
-          "8033": 0,
-          "8040": 0,
-          "8042": 0,
-          "8088": 0
+          "50010": 50010,
+          "50020": 50020,
+          "50070": 50070,
+          "50075": 50075,
+          "50090": 50090,
+          "8020": 8020,
+          "9000": 9000,
+          "10020": 10020,
+          "19888": 19888,
+          "8030": 8030,
+          "8031": 8031,
+          "8032": 8032,
+          "8033": 8033,
+          "8040": 8040,
+          "8042": 8042,
+          "8088": 8088
         },
         "joinDate": new DateTime.now().toIso8601String(),
       });
@@ -53,7 +54,7 @@ class Mongo {
 
   // }
 
-  Future<dynamic> login(String email, String pw) async {
+  Future<dynamic> getUser(String email) async {
     var user = await this._coll.find({'email': email}).toList();
     return user;
   }
