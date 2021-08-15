@@ -13,7 +13,12 @@ def req(url: str, data: dict, description: str):
     if res.status_code == 200:
         print(datetime.now().strftime('%Y-%m-%d-%H:%M:%S') + ' [INFO] : Send json to server - ', description)
         return res
-    print(datetime.now().strftime('%Y-%m-%d-%H:%M:%S') + ' [ERROR] : HTTP/' + str(res.status_code))
+    elif res.status_code == 503:
+        print(datetime.now().strftime('%Y-%m-%d-%H:%M:%S') + ' [ERROR] : HTTP/' + str(res.status_code) + " There are not collector server now.")
+    elif res.status_code == 500:
+        print(datetime.now().strftime('%Y-%m-%d-%H:%M:%S') + ' [ERROR] : HTTP/' + str(res.status_code) + " There are no databases in server now.")
+    else:
+        print(datetime.now().strftime('%Y-%m-%d-%H:%M:%S') + ' [ERROR] : HTTP/' + str(res.status_code))
     return res
 
 class YarnWorker(Thread):
@@ -31,8 +36,6 @@ class YarnWorker(Thread):
         self.__metric_arg = metric_arg
 
     def run(self):
-        sended = None
-
         while True:
             # Get data from API
             try:
@@ -41,12 +44,15 @@ class YarnWorker(Thread):
                 print(datetime.now().strftime('%Y-%m-%d-%H:%M:%S') + " [ERROR] : "+ self.__name +" - Cannot receive data from hadoop")
                 return
 
-            # Append email and datetime
-            data['email'] = self.__user.email
-            data['datetime'] = datetime.now().strftime('%Y-%m-%d-%H:%M:%S')
+            if data != None:
+                # Append email and datetime
+                data['email'] = self.__user.email
+                data['datetime'] = datetime.now().strftime('%Y-%m-%d-%H:%M:%S')
 
-            # Send data
-            data_res = req(self.__url, data, self.__metric_name)
+                # Send data
+                data_res = req(self.__url, data, self.__metric_name)
+            else:
+                print(datetime.now().strftime('%Y-%m-%d-%H:%M:%S') + " [ERROR] : "+ self.__name +" - Cannot receive data from hadoop")
             time.sleep(5)
 
 class HdfsWorker(Thread):
@@ -61,8 +67,6 @@ class HdfsWorker(Thread):
         self.__url = url
 
     def run(self):
-        sended = None
-
         while True:
             # Get data
             try:
@@ -71,11 +75,14 @@ class HdfsWorker(Thread):
                 print(datetime.now().strftime('%Y-%m-%d-%H:%M:%S') + " [ERROR] : "+ self.__name +" - Cannot receive data from hadoop")
                 return
 
-            data['email'] = self.__user.email
-            data['datetime'] = datetime.now().strftime('%Y-%m-%d-%H:%M:%S')
+            if data != None:
+                data['email'] = self.__user.email
+                data['datetime'] = datetime.now().strftime('%Y-%m-%d-%H:%M:%S')
 
-            # Send data
-            data_res = req(self.__url, data, "Hdfs information")
+                # Send data
+                data_res = req(self.__url, data, "Hdfs information")
+            else:
+                print(datetime.now().strftime('%Y-%m-%d-%H:%M:%S') + " [ERROR] : "+ self.__name +" - Cannot receive data from hadoop")
             time.sleep(5)
 
 def get_hdfs_usage():
