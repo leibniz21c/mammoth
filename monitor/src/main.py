@@ -5,10 +5,22 @@ from src.tools import HdfsWorker, YarnWorker
 from src.collector import CollectorHandler
 from hadoop.yarn import Yarn
 from conf import config
+from datetime import datetime
 
 import requests
 
 def main(argv):
+    print("""
+======================================================================================================================
+                                < Welcome to mammoth hadoop monitoring service >
+            
+Version : 1.0.0
+Stable hadoop version : 2.7.7
+Current mammoth Log collector server : {0}
+Github : {1}
+======================================================================================================================
+    """.format(config['COLLECTOR_URL'], config['GITHUB']))
+
     # Arg check
     if len(argv) != 3:
         print("Usage : python3 " + argv[0] + "[YOUR_EMAIL] " + "[YOUR_PW]")
@@ -25,10 +37,19 @@ def main(argv):
             "password": argv[2]
         }
     )
+    # 503 Server error
+    if response.status_code == 503:
+        print(datetime.now().strftime('%Y-%m-%d-%H:%M:%S') + ' [ERROR] : HTTP/' + str(response.status_code) + " There are not collector server now.")
+        return
+
+    # Error handling
+    if response.content.decode('utf-8') == "Internal Server Error":
+        print("[ERROR] : Internal Server Error!")
+        return
 
     # Bytes to str(simple)    
     user = eval(json.loads(response.content.decode('utf-8')))
-
+    
     # Getted Info
     user = User(
         email=user['email'],
