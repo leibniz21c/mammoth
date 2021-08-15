@@ -81,13 +81,6 @@ def main(argv):
         metric=yarn.cluster_appstatistics,
         metric_name="appStatInfo"
     )
-    yarn_cluster_nodes_thread = YarnWorker(
-        name="Yarn cluster nodes",
-        user=user,
-        url=collector_handler.get_yarn_cluster_nodes_url(),
-        metric=yarn.cluster_nodes,
-        metric_name="nodes"
-    )
     hdfs_info_thread = HdfsWorker(
         name="HDFS information",
         user=user,
@@ -98,12 +91,10 @@ def main(argv):
     yarn_cluster_metrics_thread.start()
     yarn_cluster_applications_thread.start()
     yarn_cluster_appstatistics_thread.start()
-    yarn_cluster_nodes_thread.start()
     hdfs_info_thread.start()
 
     # threading join
     yarn_cluster_metrics_thread.join()
     yarn_cluster_applications_thread.join()
     yarn_cluster_appstatistics_thread.join()
-    yarn_cluster_nodes_thread.join()
     hdfs_info_thread.join()
