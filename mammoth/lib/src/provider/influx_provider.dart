@@ -3,7 +3,7 @@ import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
-import 'package:mammoth/config.dart';
+import 'package:mammoth/conf.dart';
 
 enum YarnClusterMetricsOrder {
   time,
@@ -89,7 +89,7 @@ enum YarnClusterApplicationsOrder {
 }
 
 class InfluxProvider extends ChangeNotifier {
-  String baseURL = CONFIG['INFLUX_HOST']!;
+  String baseURL = CONF['INFLUX_HOST']!;
 
   Timer? _timer;
   var yarnClusterMetrics;
