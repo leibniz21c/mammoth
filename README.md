@@ -54,21 +54,21 @@ It monitors the Hadoop system as a whole and plays a role in easily delivering m
 
 > Python is installed on most systems these days.
 
-[Here is README.md of mammoth monitor!](https://github.com/ndo04343/container-based-hadoop-distributed-system-log-analyzer/tree/main/monitor)
+[Here is README.md of mammoth monitor!](https://github.com/ndo04343/mammoth/tree/main/monitor)
 
 2. __Mammoth collector__ 
 
 <img src="./pictures/logo_fastapi.png" height="50" style="display: block; margin-left: auto; margin-right: auto;"></img> 
 > Very high performance, on par with NodeJS and Go (thanks to Starlette and Pydantic).
 
-[Here is README.md of mammoth collector!](https://github.com/ndo04343/container-based-hadoop-distributed-system-log-analyzer/tree/main/collector)
+[Here is README.md of mammoth collector!](https://github.com/ndo04343/mammoth/tree/main/collector)
 
 ## 5. Installation(General user)
 
 1. Download the __Mammoth__ and register as a member.
     - Windows, OSX, Linux, or iPad, you can use this app anywhere you can think of.
 2. Install __mammoth monitor__ in your hadoop system.
-    - [Mammoth monitor installation guide](https://github.com/ndo04343/container-based-hadoop-distributed-system-log-analyzer/tree/main/monitor)
+    - [Mammoth monitor installation guide](https://github.com/ndo04343/mammoth/tree/main/monitor)
 3. Run __Mammoth monitor__  
 
 ## 6. Installation(from server to client)
@@ -76,10 +76,10 @@ It monitors the Hadoop system as a whole and plays a role in easily delivering m
 1. Download the __Mammoth__ and register as a member.
     - Windows, OSX, Linux, or iPad, you can use this app anywhere you can think of.
 2. Install __mammoth monitor__ in your hadoop system.
-    - [Mammoth monitor installation guide](https://github.com/ndo04343/container-based-hadoop-distributed-system-log-analyzer/tree/main/monitor)
+    - [Mammoth monitor installation guide](https://github.com/ndo04343/mammoth/tree/main/monitor)
 3. Install __mammoth collector__ in your own server.
 4. Install __influxdb__ and __mongodb__ in your own server.
-    - [Databases installation guide](https://github.com/ndo04343/container-based-hadoop-distributed-system-log-analyzer/tree/main/db)
+    - [Databases installation guide](https://github.com/ndo04343/mammoth/tree/main/db)
 
 5. Change ```conf.py``` in your collector
 6. Change ```conf.py``` in your monitor
@@ -117,6 +117,6 @@ It monitors the Hadoop system as a whole and plays a role in easily delivering m
 
 
 <br><br><br><br><br><br><br><br><br><br><br>
-## __Sponsed by__  
+### __Sponsed by__  
 
 <img src="./pictures/logo_mantech.png" height="40"></img> <img src="./pictures/logo_navercloud.png" height="40"></img> 
