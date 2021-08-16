@@ -2,7 +2,6 @@ import 'package:adobe_xd/adobe_xd.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mammoth/src/chart/line_chart_frame.dart';
 import 'package:mammoth/src/provider/influx_provider.dart';
 import 'package:mammoth/src/provider/screen_provider.dart';
 import 'package:mammoth/src/ui/page_title.dart';
