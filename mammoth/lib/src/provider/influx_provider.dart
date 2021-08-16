@@ -153,7 +153,7 @@ class InfluxProvider extends ChangeNotifier {
     await watchingYarnApp(email);
     this.isLoaded = true;
     notifyListeners();
-    _timer = Timer.periodic(Duration(seconds: 5), (timer) async {
+    _timer = Timer.periodic(Duration(seconds: 1), (timer) async {
       await watchingYarnCluster(email);
       await watchingHDFS(email);
       await watchingYarnAppStatic(email);

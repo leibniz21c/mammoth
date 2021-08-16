@@ -1,5 +1,7 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:mammoth/src/provider/influx_provider.dart';
+import 'package:provider/provider.dart';
 
 class LineChartFrame extends StatefulWidget {
   List _data;
