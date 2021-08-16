@@ -1,0 +1,11 @@
+bcrypt
+fastapi
+gunicorn
+passlib
+pyjwt
+python-dotenv
+python-multipart
+uvicorn
+pymongo
+influxdb
+influxdb-client
