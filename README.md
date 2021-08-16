@@ -74,7 +74,7 @@ This framework has been proven to be as fast as __Node.js__  or __Go__ , and we 
 
 3. __Mammoth__
 
-<p align="center"><img src="./pictures/logo_flutter.png" height="50"></img> </p>
+<p align="center"><img src="./pictures/logo_flutter.png" height="80"></img> </p>
 
 > Flutter is Google's UI toolkit for building beautiful, natively compiled applications for mobile, web, desktop, and embedded devices from a single codebase.
 
@@ -142,4 +142,4 @@ Just because I want users to use it on the __big screen__.
 <br><br><br><br><br><br><br><br><br><br><br>
 ### __Sponsed by__  
 
-<img src="./pictures/logo_mantech.png" height="40" align="right"></img> <img src="./pictures/logo_navercloud.png" height="40" align="right"></img> 
+<img src="./pictures/logo_mantech.png" height="80" align="right"></img> <img src="./pictures/logo_navercloud.png" height="80" align="right"></img> 
