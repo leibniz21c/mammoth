@@ -6,54 +6,90 @@ In addition, it manages the login of the Mammoth monitor client and receives dat
 so it is easily implemented for load balancing. \
 
 ## 2. Installation
-__Requirements__ : 
+1. Requirements : 
     - docker>=19.03.0
     - docker-compose>=1.25.5
-
+2. Clone
 ```
 $ git clone https://github.com/ndo04343/container-based-hadoop-distributed-system-log-analyzer.git &&
 mv container-based-hadoop-distributed-system-log-analyzer/collector . &&
 rm -rf container-based-hadoop-distributed-system-log-analyzer/ &&
-cd collector &&
-docker-compose up -d
+cd collector 
+```
+3. Modify config file : ```conf.py``` \
+__Example__
+```
+config = {
+    "MONGO_URL": "127.0.0.1",
+    "MONGO_PORT": 27017,
+    "MONGO_USER": "username",
+    "MONGO_PW": "password",
+
+    "INFLUX_HOST": "127.0.0.1",
+    "INFLUX_PORT": 8086,
+    "INFLUX_USER": "username",
+    "INFLUX_PASSWORD": "password"
+}
+```
+4. Run server
+```
+$ docker-compose up -d
+Status: Downloaded newer image for leibniz21c/mammoth-collector:1.0.0
+Creating mammoth-collector ... done
 ```
 
-## 3. Usage
-Sign up and get started on the Mammoth application. \
-If you have not registered as a member of mammoth service, the program will not work.
+## 3. Directory structure
 ```
-$ python3 main.py [YOUR_EMAIL] [YOUR_PASSWORD]
-======================================================================================================================
-                                < Welcome to mammoth hadoop monitoring service >
-
-Version : 1.0.0
-Stable hadoop version : 2.7.7
-Current mammoth Log collector server : http://slb-7695562.ncloudslb.com
-Github : https://github.com/ndo04343/container-based-hadoop-distributed-system-log-analyzer/tree/main/monitor
-======================================================================================================================
-...
-```
-
-## 4. Environment
-__Built with python>=3.6__
-```
-hadoop-yarn-rest-api==1.1.0
-requests==2.18.4
-parse==1.19.0
-```
-
-## 5. Directory structure
-```
-monitor
-│  .gitignore
-│  conf.py              # config file
-│  main.py              # starting position
-│  README.md        
-│  requirements.txt     # env
-└─src
-        collector.py    # collector module
-        main.py         # main module
-        tools.py        # tools module
-        user.py         # user module
-        __init__.py
+collector
+│  .dockerignore                    # docker ignore
+│  .env                             # env
+│  .gitignore                       # git ignore
+│  conf.py                          # Config file
+│  docker-compose.yml               # docker compose file
+│  README.md            
+│  requirements.in                  # pip 
+│  requirements.txt                 # pip
+│
+└─app
+    │  main.py                      
+    │  __init__.py
+    │
+    ├─apis                          # apis main modules
+    │  ├─hdfs_collector
+    │  │      mainmod.py
+    │  │      __init__.py
+    │  │
+    │  ├─user_conf
+    │  │      mainmod.py
+    │  │      __init__.py
+    │  │
+    │  └─yarn_collector
+    │          mainmod.py
+    │          __init__.py
+    │
+    ├─core                          # core
+    │      auth.py
+    │      config.py
+    │      __init__.py
+    │
+    ├─models                        # ORM models
+    │  │  influx_client.py
+    │  │  __init__.py
+    │  │
+    │  ├─hdfs
+    │  │      hdfs_info.py
+    │  │      __init__.py
+    │  │
+    │  ├─user
+    │  │      user_conf.py
+    │  │      __init__.py
+    │  │
+    │  └─yarn
+    │          clusterapplications.py
+    │          clusterappstatistics.py
+    │          clustermetrics.py
+    │          __init__.py
+    │
+    └─routes                         # Routes
+            views.py
 ```
