@@ -1,3 +1,4 @@
+import 'package:mammoth/config.dart';
 import 'package:mongo_dart/mongo_dart.dart';
 import 'package:dbcrypt/dbcrypt.dart';
 
@@ -6,7 +7,7 @@ class Mongo {
   var _coll;
 
   Mongo() {
-    _db = Db("mongodb://mammoth:keanu123@27.96.131.108:27017/test");
+    _db = Db(CONFIG['MONGO_HOST']!);
     _coll = _db.collection('find');
   }
 
