@@ -50,27 +50,31 @@ Github : {1}
     # Bytes to str(simple)    
     user = eval(json.loads(response.content.decode('utf-8')))
     
-    # Getted Info
-    user = User(
-        email=user['email'],
-        port={
-            "50010" : user["port"]["50010"],
-            "50020" : user["port"]["50020"],
-            "50070" : user["port"]["50070"],
-            "50075" : user["port"]["50075"],
-            "50090" : user["port"]["50090"],
-            "8020" : user["port"]["8020"],
-            "9000" : user["port"]["9000"],
-            "10020" : user["port"]["10020"],
-            "19888" : user["port"]["19888"],
-            "8030" : user["port"]["8030"],
-            "8031" : user["port"]["8031"],
-            "8032" : user["port"]["8032"],
-            "8033" : user["port"]["8033"],
-            "8040" : user["port"]["8040"],
-            "8042" : user["port"]["8042"],
-            "8088" : user["port"]["8088"]
-        })
+    try :
+        # Getted Info
+        user = User(
+            email=user['email'],
+            port={
+                "50010" : user["port"]["50010"],
+                "50020" : user["port"]["50020"],
+                "50070" : user["port"]["50070"],
+                "50075" : user["port"]["50075"],
+                "50090" : user["port"]["50090"],
+                "8020" : user["port"]["8020"],
+                "9000" : user["port"]["9000"],
+                "10020" : user["port"]["10020"],
+                "19888" : user["port"]["19888"],
+                "8030" : user["port"]["8030"],
+                "8031" : user["port"]["8031"],
+                "8032" : user["port"]["8032"],
+                "8033" : user["port"]["8033"],
+                "8040" : user["port"]["8040"],
+                "8042" : user["port"]["8042"],
+                "8088" : user["port"]["8088"]
+            })
+    except:
+        print(datetime.now().strftime('%Y-%m-%d-%H:%M:%S') + ' [ERROR] : Account mismatch. Are you a member?')
+        return
 
     collector_handler = CollectorHandler(
         url=config['COLLECTOR_URL'],

@@ -86,14 +86,12 @@ class HdfsWorker(Thread):
             time.sleep(5)
 
 def get_hdfs_usage():
-    pattern = "Filesystem                  Size     Used     Available  Use%\n{} {} {} {} {}%\n"
-    pattern = compile(pattern)
     log = subprocess.check_output(["hdfs", "dfs", "-df"], universal_newlines=True)
-    result = pattern.parse(log)
+    data = log.splitlines()[1].split()[1:]
 
     return {
-        "size": int(result[1]),
-        "used": int(result[2]),
-        "available": int(result[3]),
-        "usePercentage": int(result[4]),
+        "size": int(data[0]),
+        "used": int(data[1]),
+        "available": int(data[2]),
+        "usePercentage": int(data[3][:-1]),
     }
