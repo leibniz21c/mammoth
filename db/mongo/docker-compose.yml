@@ -1,0 +1,8 @@
+version: "3.8"
+services:
+  mammoth:
+    container_name: "mammoth-mongo"
+    restart: always
+    image: "mongo:5.0.2"
+    ports:
+      - 27017:27017

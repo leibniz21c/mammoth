@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  mammoth:
+    container_name: "mammoth-influxdb"
+    restart: always
+    image: "influxdb:1.8.9"
+    ports:
+      - "8086:8086"
+      - "8088:8088"
