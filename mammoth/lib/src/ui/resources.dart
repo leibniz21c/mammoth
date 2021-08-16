@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import 'package:mammoth/src/chart/line_chart_frame.dart';
-import 'package:mammoth/src/chart/line_chart_sample.dart';
 import 'package:mammoth/src/provider/influx_provider.dart';
 import 'package:mammoth/src/ui/page_title.dart';
 import 'package:provider/provider.dart';
@@ -20,7 +19,7 @@ class Resources extends StatelessWidget {
         PageTitle('Resources'),
         Pinned.fromPins(
           Pin(startFraction: 0.03, endFraction: 0.03),
-          Pin(startFraction: 0.17, endFraction: 0.55),
+          Pin(startFraction: 0.17, endFraction: 0.45),
           child:
               // Adobe XD layer: 'container_nodes' (shape)
               Container(
@@ -73,7 +72,7 @@ class Resources extends StatelessWidget {
         ),
         Pinned.fromPins(
           Pin(startFraction: 0.03, endFraction: 0.03),
-          Pin(startFraction: 0.5, endFraction: 0.2),
+          Pin(startFraction: 0.57, endFraction: 0.05),
           child:
               // Adobe XD layer: 'container_nodes' (shape)
               Container(

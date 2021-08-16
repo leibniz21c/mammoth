@@ -5,12 +5,7 @@ import 'package:mammoth/src/ui/button_frame.dart';
 import 'package:mammoth/src/ui/page_title.dart';
 import 'package:provider/provider.dart';
 
-class Settings extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() => _SettingsState();
-}
-
-class _SettingsState extends State<Settings> {
+class Settings extends StatelessWidget {
   final formKey = GlobalKey<FormState>();
   Map _port = {};
   String _ip = '';

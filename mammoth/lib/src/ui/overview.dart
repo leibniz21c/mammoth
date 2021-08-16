@@ -1,7 +1,6 @@
 import 'package:adobe_xd/pinned.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mammoth/src/chart/line_chart_sample.dart';
 import 'package:mammoth/src/provider/influx_provider.dart';
 import 'package:mammoth/src/ui/page_title.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -622,9 +621,12 @@ class OverView extends StatelessWidget {
                             'Submitted: ' +
                                 this
                                     .influx
-                                    .yarnClusterAppStatistics
-                                    .last[YarnClusterAppStatisticsOrder
-                                        .SUBMITTED.index]
+                                    .yarnClusterApplications
+                                    .where((item) =>
+                                        item[YarnClusterApplicationsOrder
+                                            .state.index] ==
+                                        'SUBMITTED')
+                                    .length
                                     .toString(),
                             style: TextStyle(
                               fontFamily: 'HelveticaNeue',
@@ -659,9 +661,12 @@ class OverView extends StatelessWidget {
                             'Completed: ' +
                                 this
                                     .influx
-                                    .yarnClusterAppStatistics
-                                    .last[YarnClusterAppStatisticsOrder
-                                        .FINISHED.index]
+                                    .yarnClusterApplications
+                                    .where((item) =>
+                                        item[YarnClusterApplicationsOrder
+                                            .state.index] ==
+                                        'COMPLETED')
+                                    .length
                                     .toString(),
                             style: TextStyle(
                               fontFamily: 'HelveticaNeue',
@@ -693,7 +698,16 @@ class OverView extends StatelessWidget {
                           padding:
                               const EdgeInsets.fromLTRB(0.0, 8.0, 0.0, 1.0),
                           child: Text(
-                            'Pending: ',
+                            'Pending: ' +
+                                this
+                                    .influx
+                                    .yarnClusterApplications
+                                    .where((item) =>
+                                        item[YarnClusterApplicationsOrder
+                                            .state.index] ==
+                                        'PENDING')
+                                    .length
+                                    .toString(),
                             style: TextStyle(
                               fontFamily: 'HelveticaNeue',
                               color: const Color(0xfff4f4f4),
@@ -727,9 +741,12 @@ class OverView extends StatelessWidget {
                             'Running: ' +
                                 this
                                     .influx
-                                    .yarnClusterAppStatistics
-                                    .last[YarnClusterAppStatisticsOrder
-                                        .RUNNING.index]
+                                    .yarnClusterApplications
+                                    .where((item) =>
+                                        item[YarnClusterApplicationsOrder
+                                            .state.index] ==
+                                        'RUNNING')
+                                    .length
                                     .toString(),
                             style: TextStyle(
                               fontFamily: 'HelveticaNeue',
@@ -764,9 +781,12 @@ class OverView extends StatelessWidget {
                             'Failed: ' +
                                 this
                                     .influx
-                                    .yarnClusterAppStatistics
-                                    .last[YarnClusterAppStatisticsOrder
-                                        .FAILED.index]
+                                    .yarnClusterApplications
+                                    .where((item) =>
+                                        item[YarnClusterApplicationsOrder
+                                            .state.index] ==
+                                        'FAILED')
+                                    .length
                                     .toString(),
                             style: TextStyle(
                               fontFamily: 'HelveticaNeue',
@@ -801,9 +821,12 @@ class OverView extends StatelessWidget {
                             'Killed: ' +
                                 this
                                     .influx
-                                    .yarnClusterAppStatistics
-                                    .last[YarnClusterAppStatisticsOrder
-                                        .KILLED.index]
+                                    .yarnClusterApplications
+                                    .where((item) =>
+                                        item[YarnClusterApplicationsOrder
+                                            .state.index] ==
+                                        'KILLED')
+                                    .length
                                     .toString(),
                             style: TextStyle(
                               fontFamily: 'HelveticaNeue',

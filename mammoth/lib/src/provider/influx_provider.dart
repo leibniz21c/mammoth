@@ -45,7 +45,6 @@ enum HdfsInfoOrder {
 
 enum YarnClusterAppStatisticsOrder {
   time,
-  ACCEPTE,
   ACCEPTED,
   FAILED,
   FINISHED,
@@ -56,18 +55,46 @@ enum YarnClusterAppStatisticsOrder {
   SUBMITTED,
   datetime
 }
+enum YarnClusterApplicationsOrder {
+  time,
+  allocatedMB,
+  allocatedVCores,
+  amContainerLogs,
+  amHostHttpAddress,
+  applicationTags,
+  applicationType,
+  clusterId,
+  diagnostics,
+  elapsedTime,
+  finalStatus,
+  finishedTime,
+  id,
+  id_1,
+  memorySeconds,
+  name,
+  numAMContainerPreempted,
+  numNonAMContainerPreempted,
+  preemptedResourceMB,
+  preemptedResourceVCores,
+  progress,
+  queue,
+  runningContainers,
+  startedTime,
+  state,
+  trackingUI,
+  trackingUrl,
+  user,
+  vcoreSeconds
+}
 
 class InfluxProvider extends ChangeNotifier {
   String baseURL = 'http://101.101.216.207:8086';
-  final Map<String, String> _headers = {
-    'Authorization':
-        'Token DPqjpdwyI5o5htluaG5vmfkMZp_juKtsLwDxsSOFTCP2lno1YKHLzL5ehkd8L11lNyACBMkJS89kZOZ41O_jaQ==',
-    'Content-Type': "application/json",
-  };
+
   Timer? _timer;
   var yarnClusterMetrics;
   var hdfsInfo;
   var yarnClusterAppStatistics;
+  var yarnClusterApplications;
   bool isLoaded = false;
 
   @override
@@ -78,46 +105,59 @@ class InfluxProvider extends ChangeNotifier {
 
   Future<void> watchingYarnCluster(String email) async {
     var res = await http.post(
-        Uri.parse(Uri.encodeFull(this.baseURL +
-            '/query?db=' +
-            email +
-            '&q=select * from yarnClusterMetrics')),
-        headers: this._headers);
-
+      Uri.parse(Uri.encodeFull(this.baseURL +
+          '/query?db=' +
+          email +
+          '&q=select * from yarnClusterMetrics')),
+    );
     this.yarnClusterMetrics =
         jsonDecode(res.body)['results'].first['series'].first['values'];
   }
 
-  Future<void> watchingYarnApp(String email) async {
+  Future<void> watchingYarnAppStatic(String email) async {
     var res = await http.post(
-        Uri.parse(Uri.encodeFull(this.baseURL +
-            '/query?db=' +
-            email +
-            '&q=select * from yarnClusterAppStatistics')),
-        headers: this._headers);
+      Uri.parse(Uri.encodeFull(this.baseURL +
+          '/query?db=' +
+          email +
+          '&q=select * from yarnClusterAppStatistics')),
+    );
     this.yarnClusterAppStatistics =
         jsonDecode(res.body)['results'].first['series'].first['values'];
   }
 
   Future<void> watchingHDFS(String email) async {
     var res = await http.post(
-        Uri.parse(Uri.encodeFull(
-            this.baseURL + '/query?db=' + email + '&q=select * from hdfsInfo')),
-        headers: this._headers);
+      Uri.parse(Uri.encodeFull(
+          this.baseURL + '/query?db=' + email + '&q=select * from hdfsInfo')),
+    );
     this.hdfsInfo =
         jsonDecode(res.body)['results'].first['series'].first['values'];
   }
 
+  Future<void> watchingYarnApp(String email) async {
+    var res = await http.post(
+      Uri.parse(Uri.encodeFull(this.baseURL +
+          '/query?db=' +
+          email +
+          '&q=select * from yarnClusterApplications')),
+    );
+    this.yarnClusterApplications =
+        jsonDecode(res.body)['results'].first['series'].first['values'];
+  }
+
   Future<void> startWatching(String email) async {
+    print('startwatch');
     await watchingYarnCluster(email);
     await watchingHDFS(email);
+    await watchingYarnAppStatic(email);
     await watchingYarnApp(email);
     this.isLoaded = true;
     notifyListeners();
     // _timer = Timer.periodic(Duration(seconds: 10), (timer) async {
     //   await watchingYarnCluster(email);
     //   await watchingHDFS(email);
-    //   await watchingYarnCluster(email);
+    //   await watchingYarnAppStatic(email);
+    //   await watchingYarnApp(email);
     //   notifyListeners();
     // });
   }
@@ -126,7 +166,7 @@ class InfluxProvider extends ChangeNotifier {
     var parseCreateQuery = Uri.parse(Uri.encodeFull(
         this.baseURL + '/query?q=create database "' + email + '"'));
 
-    var res = await http.post(parseCreateQuery, headers: this._headers);
+    var res = await http.post(parseCreateQuery);
     return res;
   }
 
@@ -138,12 +178,10 @@ class InfluxProvider extends ChangeNotifier {
     if (type == 'get') {
       res = await http.get(
         parsedQueryUrl,
-        headers: this._headers,
       );
     } else {
       res = await http.post(
         parsedQueryUrl,
-        headers: this._headers,
       );
     }
     return res;

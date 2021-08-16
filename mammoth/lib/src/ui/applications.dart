@@ -1,7 +1,6 @@
 import 'package:adobe_xd/adobe_xd.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mammoth/src/chart/line_chart_sample.dart';
 import 'package:mammoth/src/provider/influx_provider.dart';
 import 'package:mammoth/src/ui/page_title.dart';
 import 'package:provider/provider.dart';
@@ -477,17 +476,160 @@ class Applications extends StatelessWidget {
               children: [
                 Pinned.fromPins(
                   Pin(startFraction: 0.03, endFraction: 0.03),
-                  Pin(startFraction: 0.05, endFraction: 0.41),
-                  child:
-                      // Adobe XD layer: 'text_nodes' (text)
-                      Text(
-                    'Nodes',
-                    style: TextStyle(
-                      fontFamily: 'HelveticaNeue',
-                      fontSize: 15,
-                      color: const Color(0xfff4f4f4),
+                  Pin(startFraction: 0.05, endFraction: 0.05),
+                  child: Scrollbar(
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: this
+                            .influx
+                            .yarnClusterApplications
+                            .map<Widget>((e) {
+                          return Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: SizedBox(
+                              width: 200,
+                              height: 200,
+                              child: Stack(
+                                children: [
+                                  Pinned.fromPins(
+                                    Pin(startFraction: 0.0, endFraction: 0.0),
+                                    Pin(startFraction: 0.0, endFraction: 0.0),
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius:
+                                            BorderRadius.circular(11.0),
+                                        color: Colors.grey[800],
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: const Color(0xff000000),
+                                            offset: Offset(0, 3),
+                                            blurRadius: 6,
+                                          ),
+                                        ],
+                                      ),
+                                      child: Stack(
+                                        children: [
+                                          Pinned.fromPins(
+                                            Pin(
+                                                startFraction: 0.05,
+                                                endFraction: 0.05),
+                                            Pin(
+                                                startFraction: 0.02,
+                                                endFraction: 1 - 0.18),
+                                            child: Text(
+                                              'Name: ' +
+                                                  e[YarnClusterApplicationsOrder
+                                                          .name.index]
+                                                      .toString(),
+                                              style: TextStyle(
+                                                fontFamily: 'HelveticaNeue',
+                                                color: const Color(0xfff4f4f4),
+                                              ),
+                                            ),
+                                          ),
+                                          Pinned.fromPins(
+                                            Pin(
+                                                startFraction: 0.05,
+                                                endFraction: 0.05),
+                                            Pin(
+                                                startFraction: 0.18,
+                                                endFraction: 1 - 0.34),
+                                            child: Text(
+                                              'User: ' +
+                                                  e[YarnClusterApplicationsOrder
+                                                          .user.index]
+                                                      .toString(),
+                                              style: TextStyle(
+                                                fontFamily: 'HelveticaNeue',
+                                                color: const Color(0xfff4f4f4),
+                                              ),
+                                            ),
+                                          ),
+                                          Pinned.fromPins(
+                                            Pin(
+                                                startFraction: 0.05,
+                                                endFraction: 0.05),
+                                            Pin(
+                                                startFraction: 0.34,
+                                                endFraction: 1 - 0.5),
+                                            child: Text(
+                                              'State: ' +
+                                                  e[YarnClusterApplicationsOrder
+                                                          .state.index]
+                                                      .toString(),
+                                              style: TextStyle(
+                                                fontFamily: 'HelveticaNeue',
+                                                color: const Color(0xfff4f4f4),
+                                              ),
+                                            ),
+                                          ),
+                                          Pinned.fromPins(
+                                            Pin(
+                                                startFraction: 0.05,
+                                                endFraction: 0.05),
+                                            Pin(
+                                                startFraction: 0.5,
+                                                endFraction: 1 - 0.66),
+                                            child: Text(
+                                              'Started: ' +
+                                                  e[YarnClusterApplicationsOrder
+                                                          .startedTime.index]
+                                                      .toString(),
+                                              style: TextStyle(
+                                                fontFamily: 'HelveticaNeue',
+                                                color: const Color(0xfff4f4f4),
+                                              ),
+                                            ),
+                                          ),
+                                          Pinned.fromPins(
+                                            Pin(
+                                                startFraction: 0.05,
+                                                endFraction: 0.05),
+                                            Pin(
+                                                startFraction: 0.66,
+                                                endFraction: 1 - 0.82),
+                                            child: Text(
+                                              'Finished: ' +
+                                                  e[YarnClusterApplicationsOrder
+                                                          .finishedTime.index]
+                                                      .toString(),
+                                              style: TextStyle(
+                                                fontFamily: 'HelveticaNeue',
+                                                color: const Color(0xfff4f4f4),
+                                              ),
+                                            ),
+                                          ),
+                                          Pinned.fromPins(
+                                            Pin(
+                                                startFraction: 0.05,
+                                                endFraction: 0.05),
+                                            Pin(
+                                                startFraction: 0.82,
+                                                endFraction: 1 - 0.98),
+                                            child: Text(
+                                              'amHost: ' +
+                                                  e[YarnClusterApplicationsOrder
+                                                          .amHostHttpAddress
+                                                          .index]
+                                                      .toString(),
+                                              style: TextStyle(
+                                                fontFamily: 'HelveticaNeue',
+                                                color: const Color(0xfff4f4f4),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        }).toList(),
+                      ),
                     ),
-                    textAlign: TextAlign.left,
                   ),
                 ),
               ],

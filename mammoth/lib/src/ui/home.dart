@@ -18,28 +18,28 @@ class Home extends StatelessWidget {
     this.user = Provider.of<MongoProvider>(context, listen: false).user;
     this.influx = Provider.of<InfluxProvider>(context);
     this.influx.startWatching(this.user.first['email']);
+    print('home build');
     return Scaffold(
-      backgroundColor: const Color(0xff121212),
-      resizeToAvoidBottomInset: false,
-      body: (this.influx.isLoaded)
-          ? Stack(
-              children: [
-                Sidebar(),
-                Pinned.fromPins(
-                  Pin(startFraction: 0.2, endFraction: 0.0),
-                  Pin(startFraction: 0.0, endFraction: 0.0),
-                  child: MainScreen(),
-                ),
-              ],
-            )
-          : Center(
-              child: Text(
-                'Loading...',
-                style: TextStyle(
-                  color: Colors.white,
-                ),
-              ),
+        backgroundColor: const Color(0xff121212),
+        resizeToAvoidBottomInset: false,
+        body: Stack(
+          children: [
+            Sidebar(),
+            Pinned.fromPins(
+              Pin(startFraction: 0.2, endFraction: 0.0),
+              Pin(startFraction: 0.0, endFraction: 0.0),
+              child: (this.influx.isLoaded)
+                  ? MainScreen()
+                  : Center(
+                      child: Text(
+                        'Connection refused',
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
             ),
-    );
+          ],
+        ));
   }
 }

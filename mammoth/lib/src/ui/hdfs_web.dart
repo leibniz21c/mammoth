@@ -4,19 +4,13 @@ import 'package:mammoth/src/provider/mongo_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-class HDFSWeb extends StatefulWidget {
+class HDFSWeb extends StatelessWidget {
+  WebViewController? _webViewController;
+  var _user;
+
   HDFSWeb({
     Key? key,
   }) : super(key: key);
-
-  @override
-  _HDFSWebState createState() => _HDFSWebState();
-}
-
-class _HDFSWebState extends State<HDFSWeb> {
-  var _user;
-
-  WebViewController? _webViewController;
 
   @override
   Widget build(BuildContext context) {
