@@ -8,9 +8,9 @@ it monitors the Hadoop system and sends log data to the collector server.
 On your Linux system with Hadoop installed,
 
 ```
-$ git clone https://github.com/ndo04343/container-based-hadoop-distributed-system-log-analyzer.git &&
-mv container-based-hadoop-distributed-system-log-analyzer/monitor . &&
-rm -rf container-based-hadoop-distributed-system-log-analyzer/ &&
+$ git clone https://github.com/ndo04343/mammoth.git &&
+mv mammoth/monitor . &&
+rm -rf mammoth/ &&
 cd monitor &&
 pip3 install -r requirements.txt 
 ```
