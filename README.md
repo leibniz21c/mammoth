@@ -1,4 +1,4 @@
-<img src="./imgs/readme_logo_mammoth.png" width="100%" style="display: block; margin-left: auto; margin-right: auto;"></img>
+<p align="center"><img src="./imgs/readme_logo_mammoth.png" width="100%" style="display: block; margin-left: auto; margin-right: auto;"></img></ㅔ>
 
 ## 0. Project Name
 > Container based hadoop distributed system log analyzer
@@ -50,7 +50,7 @@ It monitors the Hadoop system as a whole and plays a role in easily delivering m
 ## 4. Frameworks
 1. __Mammoth monitor__ 
 
-<img src="./pictures/logo_python.png" height="50" style="display: block; margin-left: auto; margin-right: auto;"></img> 
+<p align="center"><img src="./pictures/logo_python.png" height="50"></img></p>
 
 > Python is installed on most systems these days.
 
@@ -61,7 +61,7 @@ Since most systems these days have Python installed, we could implement a monito
 
 2. __Mammoth collector__ 
 
-<img src="./pictures/logo_fastapi.png" height="50" style="display: block; margin-left: auto; margin-right: auto;"></img> 
+<p align="center"><img src="./pictures/logo_fastapi.png" height="50"></img> </p>
 
 > Very high performance, on par with NodeJS and Go (thanks to Starlette and Pydantic).
 
@@ -74,7 +74,7 @@ This framework has been proven to be as fast as __Node.js__  or __Go__ , and we 
 
 3. __Mammoth__
 
-<img src="./pictures/logo_flutter.png" height="50" style="display: block; margin-left: auto; margin-right: auto;"></img> 
+<p align="center"><img src="./pictures/logo_flutter.png" height="50"></img> </p>
 
 > Flutter is Google's UI toolkit for building beautiful, natively compiled applications for mobile, web, desktop, and embedded devices from a single codebase.
 
@@ -142,4 +142,4 @@ Just because I want users to use it on the __big screen__.
 <br><br><br><br><br><br><br><br><br><br><br>
 ### __Sponsed by__  
 
-<img src="./pictures/logo_mantech.png" height="40"></img> <img src="./pictures/logo_navercloud.png" height="40"></img> 
+<img src="./pictures/logo_mantech.png" height="40" align="right"></img> <img src="./pictures/logo_navercloud.png" height="40" align="right"></img> 
