@@ -147,6 +147,7 @@ class InfluxProvider extends ChangeNotifier {
   }
 
   Future<void> startWatching(String email) async {
+    print('hi');
     await watchingYarnCluster(email);
     await watchingHDFS(email);
     await watchingYarnAppStatic(email);
