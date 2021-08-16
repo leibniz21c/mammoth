@@ -1,4 +1,5 @@
-# Mammoth
+<img src="./imgs/readme_logo_mammoth.png" width="100%" style="display: block; margin-left: auto; margin-right: auto;"></img>
+
 ## 0. Project Name
 > Container based hadoop distributed system log analyzer
 
