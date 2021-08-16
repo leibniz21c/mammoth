@@ -54,14 +54,37 @@ It monitors the Hadoop system as a whole and plays a role in easily delivering m
 
 > Python is installed on most systems these days.
 
+The monitor gets the Hadoop log directly from where the Hadoop system is installed and sends data to the collector server. \
+Since most systems these days have Python installed, we could implement a monitor program in Python easily and conveniently.
+
 [Here is README.md of mammoth monitor!](https://github.com/ndo04343/mammoth/tree/main/monitor)
 
 2. __Mammoth collector__ 
 
 <img src="./pictures/logo_fastapi.png" height="50" style="display: block; margin-left: auto; margin-right: auto;"></img> 
+
 > Very high performance, on par with NodeJS and Go (thanks to Starlette and Pydantic).
 
+Collector server is responsible for processing data received from numerous monitors appropriately and passing the data to influxdb. \
+Since it is a server that has to handle a lot of traffic, we configured a collector server by balancing the load in our service. \
+The framework used for Collector Server is a framework called FastAPI. \
+This framework has been proven to be as fast as __Node.js__  or __Go__ , and we used it because it is a Python-based framework.
+
 [Here is README.md of mammoth collector!](https://github.com/ndo04343/mammoth/tree/main/collector)
+
+3. __Mammoth__
+
+<img src="./pictures/logo_flutter.png" height="50" style="display: block; margin-left: auto; margin-right: auto;"></img> 
+
+> Flutter is Google's UI toolkit for building beautiful, natively compiled applications for mobile, web, desktop, and embedded devices from a single codebase.
+
+There is only one reason I used flutter in the GUI. \
+Because it is a cross platform framework. \
+All apps can be compiled from one source to __Windows__ , __Mac__ , __Linux__ , __iPadOS__ , and __Android tablet__. \
+We do not plan to support the web environment and mobile phone environment. \
+Just because I want users to use it on the __big screen__.
+
+
 
 ## 5. Installation(General user)
 
