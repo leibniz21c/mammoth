@@ -11,9 +11,9 @@ so it is easily implemented for load balancing. \
     - docker-compose>=1.25.5
 2. Clone
 ```
-$ git clone https://github.com/ndo04343/container-based-hadoop-distributed-system-log-analyzer.git &&
-mv container-based-hadoop-distributed-system-log-analyzer/collector . &&
-rm -rf container-based-hadoop-distributed-system-log-analyzer/ &&
+$ git clone https://github.com/ndo04343/mammoth.git &&
+mv mammoth/collector . &&
+rm -rf mammoth/ &&
 cd collector 
 ```
 3. Modify config file : ```conf.py``` \
