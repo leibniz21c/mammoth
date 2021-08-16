@@ -234,7 +234,6 @@ class HDFS extends StatelessWidget {
                               .map<FlSpot>((e) => FlSpot(e.key.toDouble(),
                                   double.parse(e.value.toStringAsFixed(2))))
                               .toList(),
-                          isCurved: true,
                           colors: gradientColors,
                           barWidth: 5,
                           isStrokeCapRound: true,
@@ -251,17 +250,6 @@ class HDFS extends StatelessWidget {
                       ],
                     ),
                   ),
-                  // child: LineChartFrame(
-                  //     this
-                  //         .influx
-                  //         .hdfsInfo
-                  //         .sublist(this.influx.hdfsInfo.length - 10)
-                  //         .map((e) => e[HdfsInfoOrder.used.index] / 1073741824)
-                  //         .toList(),
-                  //     (this.influx.hdfsInfo.last[HdfsInfoOrder.size.index] /
-                  //             1073741824)
-                  //         .toInt(),
-                  //     'disk'),
                 ),
               ],
             ),

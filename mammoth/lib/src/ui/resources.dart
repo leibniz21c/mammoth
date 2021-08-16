@@ -143,7 +143,6 @@ class Resources extends StatelessWidget {
                                           double.parse(
                                               e.value.toStringAsFixed(2))))
                                       .toList(),
-                                  isCurved: true,
                                   colors: gradientColors,
                                   barWidth: 5,
                                   isStrokeCapRound: true,
@@ -273,7 +272,6 @@ class Resources extends StatelessWidget {
                               .map<FlSpot>((e) => FlSpot(e.key.toDouble(),
                                   double.parse(e.value.toStringAsFixed(2))))
                               .toList(),
-                          isCurved: true,
                           colors: gradientColors,
                           barWidth: 5,
                           isStrokeCapRound: true,
