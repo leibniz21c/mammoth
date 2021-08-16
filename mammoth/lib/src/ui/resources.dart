@@ -1,7 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
-import 'package:mammoth/src/chart/line_chart_frame.dart';
 import 'package:mammoth/src/provider/influx_provider.dart';
 import 'package:mammoth/src/ui/page_title.dart';
 import 'package:provider/provider.dart';
