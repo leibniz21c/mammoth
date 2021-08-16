@@ -166,6 +166,7 @@ class SignInDetail extends StatelessWidget {
                 Center(
               child: TextField(
                 controller: _pwController,
+                obscureText: true,
                 decoration: InputDecoration(
                   hintText: 'Password',
                   hintStyle: TextStyle(
