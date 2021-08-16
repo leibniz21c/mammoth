@@ -164,17 +164,6 @@ class Resources extends StatelessWidget {
                       ),
                     ],
                   ),
-                  // child: LineChartFrame(
-                  //     this
-                  //         .influx
-                  //         .yarnClusterMetrics
-                  //         .sublist(this.influx.yarnClusterMetrics.length - 10)
-                  //         .map((e) => e[YarnClusterMetricsOrder
-                  //             .allocatedVirtualCores.index])
-                  //         .toList(),
-                  //     this.influx.yarnClusterMetrics.last[
-                  //         YarnClusterMetricsOrder.totalVirtualCores.index],
-                  //     'vCores'),
                 ),
               ],
             ),
@@ -217,22 +206,90 @@ class Resources extends StatelessWidget {
                 Pinned.fromPins(
                   Pin(startFraction: 0.025, endFraction: 0.025),
                   Pin(startFraction: 0.23, endFraction: 0.1),
-                  child: LineChartFrame(
-                      this
-                          .influx
-                          .yarnClusterMetrics
-                          .sublist(this.influx.yarnClusterMetrics.length - 10)
-                          .map((e) =>
-                              e[YarnClusterMetricsOrder.allocatedMB.index] /
-                              1024)
-                          .toList(),
-                      (this
-                                  .influx
-                                  .yarnClusterMetrics
-                                  .last[YarnClusterMetricsOrder.totalMB.index] /
-                              1024)
-                          .toInt(),
-                      'memory'),
+                  child: LineChart(
+                    LineChartData(
+                      gridData: FlGridData(
+                        show: true,
+                        drawVerticalLine: true,
+                        getDrawingHorizontalLine: (value) {
+                          return FlLine(
+                            color: const Color(0xff37434d),
+                            strokeWidth: 1,
+                          );
+                        },
+                        getDrawingVerticalLine: (value) {
+                          return FlLine(
+                            color: const Color(0xff37434d),
+                            strokeWidth: 1,
+                          );
+                        },
+                      ),
+                      titlesData: FlTitlesData(
+                        show: true,
+                        bottomTitles: SideTitles(
+                          showTitles: false,
+                        ),
+                        leftTitles: SideTitles(
+                          showTitles: true,
+                          getTextStyles: (value) => const TextStyle(
+                            color: Color(0xff67727d),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15,
+                          ),
+                          getTitles: (value) {
+                            if (value.toInt() % 2 == 0) {
+                              return value.toInt().toString();
+                            } else {
+                              return '';
+                            }
+                          },
+                          reservedSize: 28,
+                          margin: 12,
+                        ),
+                      ),
+                      borderData: FlBorderData(
+                          show: true,
+                          border: Border.all(
+                              color: const Color(0xff37434d), width: 1)),
+                      minY: 0,
+                      maxY: this
+                              .influx
+                              .yarnClusterMetrics
+                              .last[YarnClusterMetricsOrder.totalMB.index] /
+                          1024,
+                      lineBarsData: [
+                        LineChartBarData(
+                          spots: this
+                              .influx
+                              .yarnClusterMetrics
+                              .sublist(
+                                  this.influx.yarnClusterMetrics.length - 10)
+                              .map((e) =>
+                                  e[YarnClusterMetricsOrder.allocatedMB.index] /
+                                  1024)
+                              .toList()
+                              .asMap()
+                              .entries
+                              .map<FlSpot>((e) => FlSpot(e.key.toDouble(),
+                                  double.parse(e.value.toStringAsFixed(2))))
+                              .toList(),
+                          isCurved: true,
+                          colors: gradientColors,
+                          barWidth: 5,
+                          isStrokeCapRound: true,
+                          dotData: FlDotData(
+                            show: false,
+                          ),
+                          belowBarData: BarAreaData(
+                            show: true,
+                            colors: gradientColors
+                                .map((color) => color.withOpacity(0.3))
+                                .toList(),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               ],
             ),

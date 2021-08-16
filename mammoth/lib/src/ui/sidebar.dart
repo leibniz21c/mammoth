@@ -201,8 +201,7 @@ class Sidebar extends StatelessWidget {
                       Container(
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                        image: const AssetImage(
-                            'assets/images/temp_userprofile.jpg'),
+                        image: const AssetImage('assets/images/icon_user.png'),
                         fit: BoxFit.cover,
                       ),
                       border: Border.all(

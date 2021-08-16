@@ -1,4 +1,5 @@
 import 'package:adobe_xd/adobe_xd.dart';
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mammoth/src/chart/line_chart_frame.dart';
@@ -8,6 +9,11 @@ import 'package:mammoth/src/ui/page_title.dart';
 import 'package:provider/provider.dart';
 
 class HDFS extends StatelessWidget {
+  List<Color> gradientColors = [
+    const Color(0xff23b6e6),
+    const Color(0xff02d39a),
+  ];
+
   HDFS({
     Key? key,
   }) : super(key: key);
@@ -165,17 +171,97 @@ class HDFS extends StatelessWidget {
                 Pinned.fromPins(
                   Pin(startFraction: 0.025, endFraction: 0.02),
                   Pin(startFraction: 0.25, endFraction: 0.05),
-                  child: LineChartFrame(
-                      this
-                          .influx
-                          .hdfsInfo
-                          .sublist(this.influx.hdfsInfo.length - 10)
-                          .map((e) => e[HdfsInfoOrder.used.index] / 1073741824)
-                          .toList(),
-                      (this.influx.hdfsInfo.last[HdfsInfoOrder.size.index] /
-                              1073741824)
-                          .toInt(),
-                      'disk'),
+                  child: LineChart(
+                    LineChartData(
+                      gridData: FlGridData(
+                        show: true,
+                        drawVerticalLine: true,
+                        getDrawingHorizontalLine: (value) {
+                          return FlLine(
+                            color: const Color(0xff37434d),
+                            strokeWidth: 1,
+                          );
+                        },
+                        getDrawingVerticalLine: (value) {
+                          return FlLine(
+                            color: const Color(0xff37434d),
+                            strokeWidth: 1,
+                          );
+                        },
+                      ),
+                      titlesData: FlTitlesData(
+                        show: true,
+                        bottomTitles: SideTitles(
+                          showTitles: false,
+                        ),
+                        leftTitles: SideTitles(
+                          showTitles: true,
+                          getTextStyles: (value) => const TextStyle(
+                            color: Color(0xff67727d),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15,
+                          ),
+                          getTitles: (value) {
+                            if (value.toInt() % 200 == 0) {
+                              return value.toInt().toString();
+                            } else {
+                              return '';
+                            }
+                          },
+                          reservedSize: 28,
+                          margin: 12,
+                        ),
+                      ),
+                      borderData: FlBorderData(
+                          show: true,
+                          border: Border.all(
+                              color: const Color(0xff37434d), width: 1)),
+                      minY: 0,
+                      maxY:
+                          (this.influx.hdfsInfo.last[HdfsInfoOrder.size.index] /
+                              1073741824),
+                      lineBarsData: [
+                        LineChartBarData(
+                          spots: this
+                              .influx
+                              .hdfsInfo
+                              .sublist(this.influx.hdfsInfo.length - 10)
+                              .map((e) =>
+                                  e[HdfsInfoOrder.used.index] / 1073741824)
+                              .toList()
+                              .asMap()
+                              .entries
+                              .map<FlSpot>((e) => FlSpot(e.key.toDouble(),
+                                  double.parse(e.value.toStringAsFixed(2))))
+                              .toList(),
+                          isCurved: true,
+                          colors: gradientColors,
+                          barWidth: 5,
+                          isStrokeCapRound: true,
+                          dotData: FlDotData(
+                            show: false,
+                          ),
+                          belowBarData: BarAreaData(
+                            show: true,
+                            colors: gradientColors
+                                .map((color) => color.withOpacity(0.3))
+                                .toList(),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  // child: LineChartFrame(
+                  //     this
+                  //         .influx
+                  //         .hdfsInfo
+                  //         .sublist(this.influx.hdfsInfo.length - 10)
+                  //         .map((e) => e[HdfsInfoOrder.used.index] / 1073741824)
+                  //         .toList(),
+                  //     (this.influx.hdfsInfo.last[HdfsInfoOrder.size.index] /
+                  //             1073741824)
+                  //         .toInt(),
+                  //     'disk'),
                 ),
               ],
             ),
