@@ -7,14 +7,15 @@ so it is easily implemented for load balancing. \
 
 ## 2. Installation
 __Requirements__ : 
-    - docker-compose>=3.8
+    - docker>=19.03.0
+    - docker-compose>=1.25.5
 
 ```
 $ git clone https://github.com/ndo04343/container-based-hadoop-distributed-system-log-analyzer.git &&
 mv container-based-hadoop-distributed-system-log-analyzer/collector . &&
 rm -rf container-based-hadoop-distributed-system-log-analyzer/ &&
-cd collector
-    
+cd collector &&
+docker-compose up -d
 ```
 
 ## 3. Usage

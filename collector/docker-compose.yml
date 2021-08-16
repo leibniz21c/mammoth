@@ -5,11 +5,6 @@ services:
     image: "leibniz21c/mammoth-collector:1.0.0"
     env_file:
       - .env
-    build:
-      context: ./
-      dockerfile: Dockerfile
-      labels:
-        - mammoth-collector
     volumes:
         - .:/code
     ports:

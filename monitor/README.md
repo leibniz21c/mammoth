@@ -9,10 +9,10 @@ On your Linux system with Hadoop installed,
 
 ```
 $ git clone https://github.com/ndo04343/container-based-hadoop-distributed-system-log-analyzer.git &&
-    mv container-based-hadoop-distributed-system-log-analyzer/monitor . &&
-    rm -rf container-based-hadoop-distributed-system-log-analyzer/ &&
-    cd monitor &&
-    pip3 install -r requirements.txt 
+mv container-based-hadoop-distributed-system-log-analyzer/monitor . &&
+rm -rf container-based-hadoop-distributed-system-log-analyzer/ &&
+cd monitor &&
+pip3 install -r requirements.txt 
 ```
 
 ## 3. Usage
