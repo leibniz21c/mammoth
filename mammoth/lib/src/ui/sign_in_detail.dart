@@ -75,16 +75,8 @@ class SignInDetail extends StatelessWidget {
           ),
           Pinned.fromPins(
             Pin(startFraction: 0.45, endFraction: 0.45),
-            Pin(startFraction: 0.12, endFraction: 0.82),
-            child:
-                // Adobe XD layer: 'logo_mammoth' (shape)
-                Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/logo_mammoth.png'),
-                ),
-              ),
-            ),
+            Pin(startFraction: 0.18, endFraction: 1 - 0.28),
+            child: Image.asset('assets/images/logo_mammoth.png'),
           ),
           Pinned.fromPins(
             Pin(startFraction: 0.18, endFraction: 0.7),
@@ -111,7 +103,7 @@ class SignInDetail extends StatelessWidget {
           // account box
           Pinned.fromPins(
             Pin(startFraction: 0.15, endFraction: 0.15),
-            Pin(startFraction: 0.22, endFraction: 1 - 0.38),
+            Pin(startFraction: 0.35, endFraction: 1 - 0.55),
             child:
                 // Adobe XD layer: 'edittext_id' (shape)
                 Container(
@@ -122,7 +114,7 @@ class SignInDetail extends StatelessWidget {
           ),
           Pinned.fromPins(
             Pin(startFraction: 0.15, endFraction: 0.15),
-            Pin(size: 1.0, startFraction: 0.22),
+            Pin(size: 1.0, startFraction: 0.35),
             child:
                 // Adobe XD layer: 'line1' (shape)
                 SvgPicture.string(
@@ -134,7 +126,7 @@ class SignInDetail extends StatelessWidget {
 
           Pinned.fromPins(
             Pin(startFraction: 0.15, endFraction: 0.15),
-            Pin(startFraction: 0.22, endFraction: 1 - 0.3),
+            Pin(startFraction: 0.35, endFraction: 1 - 0.45),
             child:
                 // Adobe XD layer: 'text_email' (text)
                 Center(
@@ -144,13 +136,11 @@ class SignInDetail extends StatelessWidget {
                   hintText: 'Email address',
                   hintStyle: TextStyle(
                     fontFamily: 'HelveticaNeue',
-                    fontSize: 17,
                     color: const Color(0xff818181),
                   ),
                 ),
                 style: TextStyle(
                   fontFamily: 'HelveticaNeue',
-                  fontSize: 17,
                   color: const Color(0xff818181),
                 ),
                 textAlign: TextAlign.center,
@@ -159,7 +149,7 @@ class SignInDetail extends StatelessWidget {
           ),
           Pinned.fromPins(
             Pin(startFraction: 0.15, endFraction: 0.15),
-            Pin(size: 1.0, startFraction: 0.3),
+            Pin(size: 1.0, startFraction: 0.45),
             child:
                 // Adobe XD layer: 'line2' (shape)
                 SvgPicture.string(
@@ -170,7 +160,7 @@ class SignInDetail extends StatelessWidget {
           ),
           Pinned.fromPins(
             Pin(startFraction: 0.15, endFraction: 0.15),
-            Pin(startFraction: 0.3, endFraction: 1 - 0.38),
+            Pin(startFraction: 0.45, endFraction: 1 - 0.55),
             child:
                 // Adobe XD layer: 'text_password' (text)
                 Center(
@@ -180,13 +170,11 @@ class SignInDetail extends StatelessWidget {
                   hintText: 'Password',
                   hintStyle: TextStyle(
                     fontFamily: 'HelveticaNeue',
-                    fontSize: 17,
                     color: const Color(0xff818181),
                   ),
                 ),
                 style: TextStyle(
                   fontFamily: 'HelveticaNeue',
-                  fontSize: 17,
                   color: const Color(0xff818181),
                 ),
                 textAlign: TextAlign.center,
@@ -195,7 +183,7 @@ class SignInDetail extends StatelessWidget {
           ),
           Pinned.fromPins(
             Pin(startFraction: 0.15, endFraction: 0.15),
-            Pin(size: 1.0, startFraction: 0.38),
+            Pin(size: 1.0, startFraction: 0.55),
             child:
                 // Adobe XD layer: 'inner_line' (shape)
                 SvgPicture.string(
@@ -206,14 +194,14 @@ class SignInDetail extends StatelessWidget {
           ),
           Pinned.fromPins(
             Pin(startFraction: 0.15, endFraction: 0.15),
-            Pin(startFraction: 0.38, endFraction: 1 - 0.45),
+            Pin(startFraction: 0.55, endFraction: 1 - 0.65),
             child: Center(
               child: Provider.of<MongoProvider>(context).loginMsg,
             ),
           ),
           Pinned.fromPins(
             Pin(startFraction: 0.17, endFraction: 0.17),
-            Pin(startFraction: 0.45, endFraction: 0.48),
+            Pin(startFraction: 0.65, endFraction: 1 - 0.75),
             child: GestureDetector(
               child: ButtonFrame('Sign In'),
               onTap: () async {
@@ -225,159 +213,6 @@ class SignInDetail extends StatelessWidget {
                       context, MaterialPageRoute(builder: (context) => Home()));
                 }
               },
-            ),
-          ),
-
-          Pinned.fromPins(
-            Pin(startFraction: 0.15, endFraction: 0.15),
-            Pin(startFraction: 0.55, endFraction: 0.42),
-            child:
-                // Adobe XD layer: 'button_forgotpasswo…' (text)
-                Center(
-              child: Text(
-                'Forgot password?',
-                style: TextStyle(
-                  fontFamily: 'HelveticaNeue',
-                  fontSize: 13,
-                  color: const Color(0xff3482ff),
-                  fontWeight: FontWeight.w500,
-                ),
-                textAlign: TextAlign.center,
-              ),
-            ),
-          ),
-          Pinned.fromPins(
-            Pin(startFraction: 0.17, endFraction: 0.17),
-            Pin(startFraction: 0.61, endFraction: 0.32),
-            child:
-                // Adobe XD layer: 'button_apple' (shape)
-                Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30.0),
-                color: const Color(0xff3e3e3e),
-              ),
-            ),
-          ),
-          Pinned.fromPins(
-            Pin(startFraction: 0.17, endFraction: 0.17),
-            Pin(startFraction: 0.61, endFraction: 0.32),
-            child:
-                // Adobe XD layer: 'text_apple' (text)
-                Center(
-              child: Text(
-                'Sign in with Apple',
-                style: TextStyle(
-                  fontFamily: 'HelveticaNeue',
-                  fontSize: 16,
-                  color: const Color(0xffffffff),
-                  fontWeight: FontWeight.w500,
-                ),
-                textAlign: TextAlign.center,
-              ),
-            ),
-          ),
-          Pinned.fromPins(
-            Pin(size: 18.0, startFraction: 0.2),
-            Pin(size: 23.0, middle: 0.645),
-            child:
-                // Adobe XD layer: 'logo_apple' (shape)
-                Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/logo_apple.png'),
-                  fit: BoxFit.fill,
-                ),
-              ),
-            ),
-          ),
-          Pinned.fromPins(
-            Pin(startFraction: 0.17, endFraction: 0.17),
-            Pin(startFraction: 0.7, endFraction: 0.23),
-            child:
-                // Adobe XD layer: 'button_google' (shape)
-                Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30.0),
-                color: const Color(0xff3e3e3e),
-              ),
-            ),
-          ),
-          Pinned.fromPins(
-            Pin(startFraction: 0.17, endFraction: 0.17),
-            Pin(startFraction: 0.7, endFraction: 0.23),
-            child:
-                // Adobe XD layer: 'text_google' (text)
-                Center(
-              child: Text(
-                'Sign in with Google',
-                style: TextStyle(
-                  fontFamily: 'HelveticaNeue',
-                  fontSize: 16,
-                  color: const Color(0xffffffff),
-                  fontWeight: FontWeight.w500,
-                ),
-                textAlign: TextAlign.center,
-              ),
-            ),
-          ),
-          Pinned.fromPins(
-            Pin(size: 22.0, startFraction: 0.2),
-            Pin(size: 22.0, middle: 0.74),
-            child:
-                // Adobe XD layer: 'logo_google' (shape)
-                Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/logo_google.png'),
-                  fit: BoxFit.fill,
-                ),
-              ),
-            ),
-          ),
-          Pinned.fromPins(
-            Pin(startFraction: 0.17, endFraction: 0.17),
-            Pin(startFraction: 0.79, endFraction: 0.14),
-            child:
-                // Adobe XD layer: 'button_facebook' (shape)
-                Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30.0),
-                color: const Color(0xff3e3e3e),
-              ),
-            ),
-          ),
-
-          Pinned.fromPins(
-            Pin(startFraction: 0.17, endFraction: 0.17),
-            Pin(startFraction: 0.79, endFraction: 0.14),
-            child:
-                // Adobe XD layer: 'text_facebook' (text)
-                Center(
-              child: Text(
-                'Sign in with Facebook',
-                style: TextStyle(
-                  fontFamily: 'HelveticaNeue',
-                  fontSize: 16,
-                  color: const Color(0xffffffff),
-                  fontWeight: FontWeight.w500,
-                ),
-                textAlign: TextAlign.center,
-              ),
-            ),
-          ),
-
-          Pinned.fromPins(
-            Pin(size: 22.0, startFraction: 0.2),
-            Pin(size: 23.0, middle: 0.84),
-            child:
-                // Adobe XD layer: 'logo_facebook' (shape)
-                Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/logo_facebook.png'),
-                  fit: BoxFit.fill,
-                ),
-              ),
             ),
           ),
         ],

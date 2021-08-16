@@ -18,7 +18,6 @@ class Settings extends StatelessWidget {
     this._email = this._user.first['email'];
     this._ip = this._user.first['ipv4'];
     this._port = this._user.first['port'];
-    print(this._user);
     return Scaffold(
       backgroundColor: const Color(0xff121212),
       resizeToAvoidBottomInset: false,

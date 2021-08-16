@@ -397,10 +397,14 @@ class OverView extends StatelessWidget {
                       Pin(startFraction: 0.0, endFraction: 0.0),
                       Pin(
                           startFraction: 1.0 -
-                              this
-                                  .influx
-                                  .hdfsInfo
-                                  .last[HdfsInfoOrder.usePercentage.index],
+                              (this
+                                      .influx
+                                      .hdfsInfo
+                                      .last[HdfsInfoOrder.used.index] /
+                                  this
+                                      .influx
+                                      .hdfsInfo
+                                      .last[HdfsInfoOrder.size.index]),
                           endFraction: 0.0),
                       child: Container(
                         decoration: const BoxDecoration(

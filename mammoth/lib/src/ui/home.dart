@@ -10,35 +10,46 @@ import 'package:provider/provider.dart';
 class Home extends StatelessWidget {
   var user;
   var influx;
+  bool isLoaded = false;
   Home({
     Key? key,
   }) : super(key: key);
+
+  Future<void> initAndStart(BuildContext context) async {
+    this.user = Provider.of<MongoProvider>(context, listen: false).user;
+    this.influx = Provider.of<InfluxProvider>(context, listen: false);
+    await this.influx.startWatching(this.user.first['email']);
+    if (!this.isLoaded) {
+      this.isLoaded = true;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    this.user = Provider.of<MongoProvider>(context, listen: false).user;
-    this.influx = Provider.of<InfluxProvider>(context);
-    this.influx.startWatching(this.user.first['email']);
-    return Scaffold(
-        backgroundColor: const Color(0xff121212),
-        resizeToAvoidBottomInset: false,
-        body: Stack(
-          children: [
-            Sidebar(),
-            Pinned.fromPins(
-              Pin(startFraction: 0.2, endFraction: 0.0),
-              Pin(startFraction: 0.0, endFraction: 0.0),
-              child: (this.influx.isLoaded)
-                  ? MainScreen()
-                  : Center(
-                      child: Text(
-                        'Connection refused',
-                        style: TextStyle(
-                          color: Colors.white,
+    return FutureBuilder(
+      future: initAndStart(context),
+      builder: (context, snap) => Scaffold(
+          backgroundColor: const Color(0xff121212),
+          resizeToAvoidBottomInset: false,
+          body: Stack(
+            children: [
+              Sidebar(),
+              Pinned.fromPins(
+                Pin(startFraction: 0.2, endFraction: 0.0),
+                Pin(startFraction: 0.0, endFraction: 0.0),
+                child: (Provider.of<InfluxProvider>(context).isLoaded)
+                    ? MainScreen()
+                    : Center(
+                        child: Text(
+                          'Connection refused',
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
                         ),
                       ),
-                    ),
-            ),
-          ],
-        ));
+              ),
+            ],
+          )),
+    );
   }
 }

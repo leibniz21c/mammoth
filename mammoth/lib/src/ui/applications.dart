@@ -38,14 +38,16 @@ class Applications extends StatelessWidget {
                   Pin(startFraction: 0.05, endFraction: 0.41),
                   child:
                       // Adobe XD layer: 'text_nodes' (text)
-                      Text(
-                    'Submitted',
-                    style: TextStyle(
-                      fontFamily: 'HelveticaNeue',
-                      fontSize: 15,
-                      color: const Color(0xfff4f4f4),
+                      Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: Text(
+                      'Submitted',
+                      style: TextStyle(
+                        fontFamily: 'HelveticaNeue',
+                        color: const Color(0xfff4f4f4),
+                      ),
+                      textAlign: TextAlign.left,
                     ),
-                    textAlign: TextAlign.left,
                   ),
                 ),
                 Pinned.fromPins(
@@ -93,14 +95,16 @@ class Applications extends StatelessWidget {
                   Pin(startFraction: 0.05, endFraction: 0.41),
                   child:
                       // Adobe XD layer: 'text_nodes' (text)
-                      Text(
-                    'Accepted',
-                    style: TextStyle(
-                      fontFamily: 'HelveticaNeue',
-                      fontSize: 15,
-                      color: const Color(0xfff4f4f4),
+                      Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: Text(
+                      'Accepted',
+                      style: TextStyle(
+                        fontFamily: 'HelveticaNeue',
+                        color: const Color(0xfff4f4f4),
+                      ),
+                      textAlign: TextAlign.left,
                     ),
-                    textAlign: TextAlign.left,
                   ),
                 ),
                 Pinned.fromPins(
@@ -148,14 +152,16 @@ class Applications extends StatelessWidget {
                   Pin(startFraction: 0.05, endFraction: 0.41),
                   child:
                       // Adobe XD layer: 'text_nodes' (text)
-                      Text(
-                    'Running',
-                    style: TextStyle(
-                      fontFamily: 'HelveticaNeue',
-                      fontSize: 15,
-                      color: const Color(0xfff4f4f4),
+                      Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: Text(
+                      'Running',
+                      style: TextStyle(
+                        fontFamily: 'HelveticaNeue',
+                        color: const Color(0xfff4f4f4),
+                      ),
+                      textAlign: TextAlign.left,
                     ),
-                    textAlign: TextAlign.left,
                   ),
                 ),
                 Pinned.fromPins(
@@ -203,14 +209,16 @@ class Applications extends StatelessWidget {
                   Pin(startFraction: 0.05, endFraction: 0.41),
                   child:
                       // Adobe XD layer: 'text_nodes' (text)
-                      Text(
-                    'Finished',
-                    style: TextStyle(
-                      fontFamily: 'HelveticaNeue',
-                      fontSize: 15,
-                      color: const Color(0xfff4f4f4),
+                      Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: Text(
+                      'Finished',
+                      style: TextStyle(
+                        fontFamily: 'HelveticaNeue',
+                        color: const Color(0xfff4f4f4),
+                      ),
+                      textAlign: TextAlign.left,
                     ),
-                    textAlign: TextAlign.left,
                   ),
                 ),
                 Pinned.fromPins(
@@ -258,14 +266,16 @@ class Applications extends StatelessWidget {
                   Pin(startFraction: 0.05, endFraction: 0.41),
                   child:
                       // Adobe XD layer: 'text_nodes' (text)
-                      Text(
-                    'New',
-                    style: TextStyle(
-                      fontFamily: 'HelveticaNeue',
-                      fontSize: 15,
-                      color: const Color(0xfff4f4f4),
+                      Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: Text(
+                      'New',
+                      style: TextStyle(
+                        fontFamily: 'HelveticaNeue',
+                        color: const Color(0xfff4f4f4),
+                      ),
+                      textAlign: TextAlign.left,
                     ),
-                    textAlign: TextAlign.left,
                   ),
                 ),
                 Pinned.fromPins(
@@ -311,16 +321,16 @@ class Applications extends StatelessWidget {
                 Pinned.fromPins(
                   Pin(startFraction: 0.05, endFraction: 0.05),
                   Pin(startFraction: 0.05, endFraction: 0.41),
-                  child:
-                      // Adobe XD layer: 'text_nodes' (text)
-                      Text(
-                    'Failed',
-                    style: TextStyle(
-                      fontFamily: 'HelveticaNeue',
-                      fontSize: 15,
-                      color: const Color(0xfff4f4f4),
+                  child: Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: Text(
+                      'Failed',
+                      style: TextStyle(
+                        fontFamily: 'HelveticaNeue',
+                        color: const Color(0xfff4f4f4),
+                      ),
+                      textAlign: TextAlign.left,
                     ),
-                    textAlign: TextAlign.left,
                   ),
                 ),
                 Pinned.fromPins(
@@ -366,16 +376,16 @@ class Applications extends StatelessWidget {
                 Pinned.fromPins(
                   Pin(startFraction: 0.05, endFraction: 0.05),
                   Pin(startFraction: 0.05, endFraction: 0.41),
-                  child:
-                      // Adobe XD layer: 'text_nodes' (text)
-                      Text(
-                    'New Saving',
-                    style: TextStyle(
-                      fontFamily: 'HelveticaNeue',
-                      fontSize: 15,
-                      color: const Color(0xfff4f4f4),
+                  child: Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: Text(
+                      'New Saving',
+                      style: TextStyle(
+                        fontFamily: 'HelveticaNeue',
+                        color: const Color(0xfff4f4f4),
+                      ),
+                      textAlign: TextAlign.left,
                     ),
-                    textAlign: TextAlign.left,
                   ),
                 ),
                 Pinned.fromPins(
@@ -422,16 +432,16 @@ class Applications extends StatelessWidget {
                 Pinned.fromPins(
                   Pin(startFraction: 0.05, endFraction: 0.05),
                   Pin(startFraction: 0.05, endFraction: 0.41),
-                  child:
-                      // Adobe XD layer: 'text_nodes' (text)
-                      Text(
-                    'Killed',
-                    style: TextStyle(
-                      fontFamily: 'HelveticaNeue',
-                      fontSize: 15,
-                      color: const Color(0xfff4f4f4),
+                  child: Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: Text(
+                      'Killed',
+                      style: TextStyle(
+                        fontFamily: 'HelveticaNeue',
+                        color: const Color(0xfff4f4f4),
+                      ),
+                      textAlign: TextAlign.left,
                     ),
-                    textAlign: TextAlign.left,
                   ),
                 ),
                 Pinned.fromPins(
@@ -492,22 +502,20 @@ class Applications extends StatelessWidget {
                               height: 200,
                               child: Stack(
                                 children: [
-                                  Pinned.fromPins(
-                                    Pin(startFraction: 0.0, endFraction: 0.0),
-                                    Pin(startFraction: 0.0, endFraction: 0.0),
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(11.0),
-                                        color: Colors.grey[800],
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color: const Color(0xff000000),
-                                            offset: Offset(0, 3),
-                                            blurRadius: 6,
-                                          ),
-                                        ],
-                                      ),
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(11.0),
+                                      color: Colors.grey[800],
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: const Color(0xff000000),
+                                          offset: Offset(0, 3),
+                                          blurRadius: 6,
+                                        ),
+                                      ],
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
                                       child: Stack(
                                         children: [
                                           Pinned.fromPins(
@@ -525,6 +533,7 @@ class Applications extends StatelessWidget {
                                               style: TextStyle(
                                                 fontFamily: 'HelveticaNeue',
                                                 color: const Color(0xfff4f4f4),
+                                                fontSize: 11,
                                               ),
                                             ),
                                           ),
@@ -543,6 +552,7 @@ class Applications extends StatelessWidget {
                                               style: TextStyle(
                                                 fontFamily: 'HelveticaNeue',
                                                 color: const Color(0xfff4f4f4),
+                                                fontSize: 11,
                                               ),
                                             ),
                                           ),
@@ -561,6 +571,7 @@ class Applications extends StatelessWidget {
                                               style: TextStyle(
                                                 fontFamily: 'HelveticaNeue',
                                                 color: const Color(0xfff4f4f4),
+                                                fontSize: 11,
                                               ),
                                             ),
                                           ),
@@ -579,6 +590,7 @@ class Applications extends StatelessWidget {
                                               style: TextStyle(
                                                 fontFamily: 'HelveticaNeue',
                                                 color: const Color(0xfff4f4f4),
+                                                fontSize: 11,
                                               ),
                                             ),
                                           ),
@@ -597,6 +609,7 @@ class Applications extends StatelessWidget {
                                               style: TextStyle(
                                                 fontFamily: 'HelveticaNeue',
                                                 color: const Color(0xfff4f4f4),
+                                                fontSize: 11,
                                               ),
                                             ),
                                           ),
@@ -616,6 +629,7 @@ class Applications extends StatelessWidget {
                                               style: TextStyle(
                                                 fontFamily: 'HelveticaNeue',
                                                 color: const Color(0xfff4f4f4),
+                                                fontSize: 11,
                                               ),
                                             ),
                                           ),
