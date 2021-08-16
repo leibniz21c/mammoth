@@ -40,21 +40,7 @@ class Sidebar extends StatelessWidget {
           ),
 
           Pinned.fromPins(
-            Pin(size: 23.0, startFraction: 0.07),
-            Pin(size: 23.0, startFraction: 0.17),
-            child:
-                // Adobe XD layer: 'icon_yarn' (shape)
-                Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/icon_yarn.png'),
-                  fit: BoxFit.fill,
-                ),
-              ),
-            ),
-          ),
-          Pinned.fromPins(
-            Pin(startFraction: 0.2, endFraction: 0.0),
+            Pin(startFraction: 0.07, endFraction: 0.0),
             Pin(startFraction: 0.17, endFraction: 0.78),
             child:
                 // Adobe XD layer: 'text_yarn' (text)
@@ -63,34 +49,35 @@ class Sidebar extends StatelessWidget {
                 Provider.of<ScreenProvider>(context, listen: false)
                     .changeScreen(Screen.Overview);
               },
-              child: Text(
-                'Home',
-                style: TextStyle(
-                  fontFamily: 'HelveticaNeue',
-                  fontSize: 17,
-                  color: const Color(0xfff4f4f4),
-                ),
-                textAlign: TextAlign.left,
+              child: Stack(
+                children: [
+                  Pinned.fromPins(
+                    Pin(startFraction: 0.0, endFraction: 0.88),
+                    Pin(startFraction: 0.0, endFraction: 0.0),
+                    child: Image.asset('assets/images/icon_home.png'),
+                  ),
+                  Pinned.fromPins(
+                    Pin(startFraction: 0.15, endFraction: 0.0),
+                    Pin(start: 0.0, end: 0.0),
+                    child: Container(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        'Home',
+                        style: TextStyle(
+                          fontFamily: 'HelveticaNeue',
+                          fontSize: 17,
+                          color: const Color(0xfff4f4f4),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
 
           Pinned.fromPins(
-            Pin(size: 23.0, startFraction: 0.07),
-            Pin(size: 23.0, startFraction: 0.225),
-            child:
-                // Adobe XD layer: 'icon_hdfs' (shape)
-                Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/icon_yarn.png'),
-                  fit: BoxFit.fill,
-                ),
-              ),
-            ),
-          ),
-          Pinned.fromPins(
-            Pin(startFraction: 0.2, endFraction: 0.07),
+            Pin(startFraction: 0.07, endFraction: 0.0),
             Pin(startFraction: 0.23, endFraction: 0.72),
             child:
                 // Adobe XD layer: 'text_hdfs' (text)
@@ -99,34 +86,35 @@ class Sidebar extends StatelessWidget {
                 Provider.of<ScreenProvider>(context, listen: false)
                     .changeScreen(Screen.Resources);
               },
-              child: Text(
-                'Resources',
-                style: TextStyle(
-                  fontFamily: 'HelveticaNeue',
-                  fontSize: 17,
-                  color: const Color(0xfff4f4f4),
-                ),
-                textAlign: TextAlign.left,
+              child: Stack(
+                children: [
+                  Pinned.fromPins(
+                    Pin(startFraction: 0.0, endFraction: 0.88),
+                    Pin(startFraction: 0.0, endFraction: 0.0),
+                    child: Image.asset('assets/images/icon_resource.png'),
+                  ),
+                  Pinned.fromPins(
+                    Pin(startFraction: 0.15, endFraction: 0.0),
+                    Pin(start: 0.0, end: 0.0),
+                    child: Container(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        'Resources',
+                        style: TextStyle(
+                          fontFamily: 'HelveticaNeue',
+                          fontSize: 17,
+                          color: const Color(0xfff4f4f4),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
 
           Pinned.fromPins(
-            Pin(size: 42.0, startFraction: 0.04),
-            Pin(size: 42.0, startFraction: 0.275),
-            child:
-                // Adobe XD layer: 'icon_mapreduce' (shape)
-                Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/icon_hdfs.png'),
-                  fit: BoxFit.fill,
-                ),
-              ),
-            ),
-          ),
-          Pinned.fromPins(
-            Pin(startFraction: 0.2, endFraction: 0.07),
+            Pin(startFraction: 0.07, endFraction: 0.0),
             Pin(startFraction: 0.29, endFraction: 0.67),
             child:
                 // Adobe XD layer: 'text_mapreduce' (text)
@@ -135,33 +123,35 @@ class Sidebar extends StatelessWidget {
                 Provider.of<ScreenProvider>(context, listen: false)
                     .changeScreen(Screen.HDFS);
               },
-              child: Text(
-                'HDFS',
-                style: TextStyle(
-                  fontFamily: 'HelveticaNeue',
-                  fontSize: 17,
-                  color: const Color(0xfff4f4f4),
-                ),
-                textAlign: TextAlign.left,
+              child: Stack(
+                children: [
+                  Pinned.fromPins(
+                    Pin(startFraction: 0.0, endFraction: 0.88),
+                    Pin(startFraction: 0.0, endFraction: 0.0),
+                    child: Image.asset('assets/images/icon_hdfs.png'),
+                  ),
+                  Pinned.fromPins(
+                    Pin(startFraction: 0.15, endFraction: 0.0),
+                    Pin(startFraction: 0.0, endFraction: 0.0),
+                    child: Container(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        'HDFS',
+                        style: TextStyle(
+                          fontFamily: 'HelveticaNeue',
+                          fontSize: 17,
+                          color: const Color(0xfff4f4f4),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
+
           Pinned.fromPins(
-            Pin(size: 42.0, startFraction: 0.04),
-            Pin(size: 42.0, startFraction: 0.34),
-            child:
-                // Adobe XD layer: 'icon_mapreduce' (shape)
-                Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/icon_mapreduce.png'),
-                  fit: BoxFit.fill,
-                ),
-              ),
-            ),
-          ),
-          Pinned.fromPins(
-            Pin(startFraction: 0.2, endFraction: 0.07),
+            Pin(startFraction: 0.07, endFraction: 0.0),
             Pin(startFraction: 0.35, endFraction: 0.61),
             child:
                 // Adobe XD layer: 'text_mapreduce' (text)
@@ -170,14 +160,29 @@ class Sidebar extends StatelessWidget {
                 Provider.of<ScreenProvider>(context, listen: false)
                     .changeScreen(Screen.Applications);
               },
-              child: Text(
-                'Applications',
-                style: TextStyle(
-                  fontFamily: 'HelveticaNeue',
-                  fontSize: 17,
-                  color: const Color(0xfff4f4f4),
-                ),
-                textAlign: TextAlign.left,
+              child: Stack(
+                children: [
+                  Pinned.fromPins(
+                    Pin(startFraction: 0.0, endFraction: 0.88),
+                    Pin(startFraction: 0.0, endFraction: 0.0),
+                    child: Image.asset('assets/images/icon_application.png'),
+                  ),
+                  Pinned.fromPins(
+                    Pin(startFraction: 0.15, endFraction: 0.0),
+                    Pin(start: 0.0, end: 0.0),
+                    child: Container(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        'Applications',
+                        style: TextStyle(
+                          fontFamily: 'HelveticaNeue',
+                          fontSize: 17,
+                          color: const Color(0xfff4f4f4),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),

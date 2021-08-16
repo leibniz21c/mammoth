@@ -146,20 +146,19 @@ class InfluxProvider extends ChangeNotifier {
   }
 
   Future<void> startWatching(String email) async {
-    print('startwatch');
     await watchingYarnCluster(email);
     await watchingHDFS(email);
     await watchingYarnAppStatic(email);
     await watchingYarnApp(email);
     this.isLoaded = true;
     notifyListeners();
-    // _timer = Timer.periodic(Duration(seconds: 10), (timer) async {
-    //   await watchingYarnCluster(email);
-    //   await watchingHDFS(email);
-    //   await watchingYarnAppStatic(email);
-    //   await watchingYarnApp(email);
-    //   notifyListeners();
-    // });
+    _timer = Timer.periodic(Duration(seconds: 10), (timer) async {
+      await watchingYarnCluster(email);
+      await watchingHDFS(email);
+      await watchingYarnAppStatic(email);
+      await watchingYarnApp(email);
+      notifyListeners();
+    });
   }
 
   Future<http.Response> createDB(String email) async {

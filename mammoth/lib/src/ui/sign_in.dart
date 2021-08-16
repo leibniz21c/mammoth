@@ -24,22 +24,21 @@ class SignIn extends StatelessWidget {
       body: Stack(
         children: <Widget>[
           Pinned.fromPins(
-            Pin(size: 140.0, middle: 0.5),
-            Pin(size: 100.0, middle: 0.5),
+            Pin(startFraction: 0.43, endFraction: 0.43),
+            Pin(startFraction: 0.3, endFraction: 0.6),
             child:
                 // Adobe XD layer: 'logo_mammoth' (shape)
                 Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: const AssetImage('assets/images/logo_mammoth.png'),
-                  fit: BoxFit.fill,
                 ),
               ),
             ),
           ),
           Pinned.fromPins(
             Pin(startFraction: 0.2, endFraction: 0.2),
-            Pin(startFraction: 0.82, endFraction: 0.1),
+            Pin(startFraction: 0.5, endFraction: 1 - 0.58),
             child:
                 // Adobe XD layer: 'button_signin' (component)
                 GestureDetector(
@@ -52,7 +51,7 @@ class SignIn extends StatelessWidget {
           ),
           Pinned.fromPins(
             Pin(startFraction: 0.2, endFraction: 0.2),
-            Pin(startFraction: 0.72, endFraction: 0.2),
+            Pin(startFraction: 0.6, endFraction: 1 - 0.68),
             child:
                 // Adobe XD layer: 'button_signin' (component)
                 GestureDetector(
@@ -65,7 +64,7 @@ class SignIn extends StatelessWidget {
           ),
           Pinned.fromPins(
             Pin(startFraction: 0.2, endFraction: 0.2),
-            Pin(startFraction: 0.92, endFraction: 0.04),
+            Pin(startFraction: 0.7, endFraction: 1 - 0.74),
             child:
                 // Adobe XD layer: 'text_description' (text)
                 Center(

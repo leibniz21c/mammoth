@@ -110,12 +110,17 @@ class Resources extends StatelessWidget {
                   child: LineChartFrame(
                       this
                           .influx
-                          .hdfsInfo
-                          .sublist(this.influx.hdfsInfo.length - 10)
-                          .map((e) => e[HdfsInfoOrder.used.index] / 1073741824)
+                          .yarnClusterMetrics
+                          .sublist(this.influx.yarnClusterMetrics.length - 10)
+                          .map((e) =>
+                              e[YarnClusterMetricsOrder.allocatedMB.index] /
+                              1024)
                           .toList(),
-                      (this.influx.hdfsInfo.last[HdfsInfoOrder.size.index] /
-                              1073741824)
+                      (this
+                                  .influx
+                                  .yarnClusterMetrics
+                                  .last[YarnClusterMetricsOrder.totalMB.index] /
+                              1024)
                           .toInt(),
                       'memory'),
                 ),

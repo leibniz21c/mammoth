@@ -83,6 +83,12 @@ class _LineChartFrameState extends State<LineChartFrame> {
                   return '';
                 }
               case 'memory':
+                if (value.toInt() % 2 == 0) {
+                  return value.toInt().toString();
+                } else {
+                  return '';
+                }
+              case 'disk':
                 if (value.toInt() % 200 == 0) {
                   return value.toInt().toString();
                 } else {

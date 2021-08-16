@@ -18,7 +18,6 @@ class Home extends StatelessWidget {
     this.user = Provider.of<MongoProvider>(context, listen: false).user;
     this.influx = Provider.of<InfluxProvider>(context);
     this.influx.startWatching(this.user.first['email']);
-    print('home build');
     return Scaffold(
         backgroundColor: const Color(0xff121212),
         resizeToAvoidBottomInset: false,

@@ -175,7 +175,7 @@ class HDFS extends StatelessWidget {
                       (this.influx.hdfsInfo.last[HdfsInfoOrder.size.index] /
                               1073741824)
                           .toInt(),
-                      'memory'),
+                      'disk'),
                 ),
               ],
             ),

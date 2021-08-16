@@ -74,8 +74,8 @@ class SignInDetail extends StatelessWidget {
             ),
           ),
           Pinned.fromPins(
-            Pin(size: 55.5, middle: 0.5),
-            Pin(size: 42.0, startFraction: 0.12),
+            Pin(startFraction: 0.45, endFraction: 0.45),
+            Pin(startFraction: 0.12, endFraction: 0.82),
             child:
                 // Adobe XD layer: 'logo_mammoth' (shape)
                 Container(
