@@ -142,4 +142,4 @@ Just because I want users to use it on the __big screen__.
 <br><br><br><br><br><br><br><br><br><br><br>
 ### __Sponsed by__  
 
-<img src="./pictures/logo_mantech.png" height="80" align="right"></img> <img src="./pictures/logo_navercloud.png" height="80" align="right"></img> 
+<img src="./pictures/logo_mantech.png" height="80"></img> <img src="./pictures/logo_navercloud.png" height="80"></img> 
