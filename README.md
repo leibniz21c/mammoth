@@ -11,7 +11,7 @@ It monitors the Hadoop system as a whole and plays a role in easily delivering m
 
 > Manage your Hadoop system with ease!
 
-<p align="center"><img src="./imgs/readme_overview01.png" height="400"
+<p align="center"><img src="./imgs/readme_overview01.png" width="100%"
 style="display: block; margin-left: auto; margin-right: auto;"></img></p>
 
 > Do not worry and use it in any OS!
