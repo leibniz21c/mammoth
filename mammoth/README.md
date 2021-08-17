@@ -6,7 +6,7 @@ This app receives data from the collector server, visualizes it, and shows it to
 ## 2. Installation
 Just download and execute our app.
 * Android: .apk file
-* IOS:
+* IOS: .
 * Windows: .exe file
 
 ## 3. Environment
