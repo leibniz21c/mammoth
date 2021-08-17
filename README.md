@@ -78,7 +78,7 @@ This framework has been proven to be as fast as __Node.js__  or __Go__ , and we 
 
 [Here is README.md of mammoth collector!](https://github.com/ndo04343/mammoth/tree/main/collector)
 
-3. __Mammoth__
+3. __Mammoth GUI__
 
 <p align="center"><img src="./pictures/logo_flutter.png" height="80"></img> </p>
 
@@ -89,6 +89,8 @@ Because it is a cross platform framework. \
 All apps can be compiled from one source to __Windows__ , __Mac__ , __Linux__ , __iPadOS__ , and __Android tablet__. \
 We do not plan to support the web environment and mobile phone environment. \
 Just because I want users to use it on the __big screen__.
+
+[Here is README.md of mammoth GUI!](https://github.com/ndo04343/mammoth/tree/main/mammoth)
 
 
 
