@@ -5,9 +5,10 @@ This app receives data from the collector server, visualizes it, and shows it to
 
 ## 2. Installation
 Just download and execute our app.
-* Android: .apk file
-* IOS: .ipa file
-* Windows: .exe file
+* Android: [mammoth.apk](https://github.com/ndo04343/mammoth/tree/main/android)
+* IOS: [mammoth.ipa](https://github.com/ndo04343/mammoth/tree/main/ios)
+* Mac: [mammoth.dmg](https://github.com/ndo04343/mammoth/tree/main/mac)
+* Windows: [mammoth.exe](https://github.com/ndo04343/mammoth/tree/main/windows)
 
 ## 3. Environment
 **Built with flutter >=2.12.0**
