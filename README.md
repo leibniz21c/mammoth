@@ -116,35 +116,35 @@ Just because I want users to use it on the __big screen__.
 
 ### 7.1. Initial page
 
-<p align="center"><img src="./imgs/init.png" height="400"
+<p align="center"><img src="./imgs/init.png" width="100%"
 style="display: block; margin-left: auto; margin-right: auto;"></img></p>
 
 ### 7.2. Home page(Overview)
 
-<p align="center"><img src="./imgs/home.png" height="400"
+<p align="center"><img src="./imgs/home.png" width="100%"
 style="display: block; margin-left: auto; margin-right: auto;"></img></p>
 
 ### 7.3. Resources monitoring page
 
-<p align="center"><img src="./imgs/resources.png" height="400"
+<p align="center"><img src="./imgs/resources.png" width="100%"
 style="display: block; margin-left: auto; margin-right: auto;"></img></p>
 
 ### 7.4. HDFS page
 
-<p align="center"><img src="./imgs/hdfs.png" height="400"
+<p align="center"><img src="./imgs/hdfs.png" width="100%"
 style="display: block; margin-left: auto; margin-right: auto;"></img></p>
 
 ### 7.5. HDFS file browsing page
 
-<p align="center"><img src="./imgs/hdfs_filebrowser.png" height="400"
+<p align="center"><img src="./imgs/hdfs_filebrowser.png" width="100%"
 style="display: block; margin-left: auto; margin-right: auto;"></img></p>
 
-<p align="center"><img src="./imgs/hdfs_filebrowser_detail.png" height="400"
+<p align="center"><img src="./imgs/hdfs_filebrowser_detail.png" width="100%"
 style="display: block; margin-left: auto; margin-right: auto;"></img></p>
 
 ### 7.6. Applications page
 
-<p align="center"><img src="./imgs/applications.png" height="400"
+<p align="center"><img src="./imgs/applications.png" width="100%"
 style="display: block; margin-left: auto; margin-right: auto;"></img></p>
 
 ## 8. Mammoth service server status
