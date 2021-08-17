@@ -1,7 +1,7 @@
 # Mammoth: GUI Environment
 
 ## 1. Overview
-This app receives data from the collector server, visualizes it, and shows it to users.
+This app receives data from the database servers, visualizes it, and shows it to users.
 
 ## 2. Installation
 Just download and execute our app.
