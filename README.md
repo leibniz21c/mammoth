@@ -148,7 +148,12 @@ style="display: block; margin-left: auto; margin-right: auto;"></img></p>
 <p align="center"><img src="./imgs/applications.png" width="100%"
 style="display: block; margin-left: auto; margin-right: auto;"></img></p>
 
-## 8. Mammoth service server status
+## 8. Demo video
+
+{% include demo.html id="https://www.youtube.com/watch?v=nF3AXhD264c" %}  
+
+
+## 9. Mammoth service server status
 
 1. Collector(Load balanced)
     - mammoth-collector1 :
