@@ -150,7 +150,7 @@ style="display: block; margin-left: auto; margin-right: auto;"></img></p>
 
 ## 8. Demo video
 
-<a href="https://www.youtube.com/watch?v=nF3AXhD264c"><p align="center"><img src="./imgs/youtube.png" width="100%" style="display: block; margin-left: auto; margin-right: auto;"></img></p></a>
+<a href="https://www.youtube.com/watch?v=nF3AXhD264c"><p align="center"><img src="./imgs/youtube.PNG" width="100%" style="display: block; margin-left: auto; margin-right: auto;"></img></p></a>
 
 
 ## 9. Mammoth service server status
