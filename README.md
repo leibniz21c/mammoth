@@ -1,4 +1,4 @@
-<p align="center"><img src="./imgs/readme_logo_mammoth.png" width="100%" style="display: block; margin-left: auto; margin-right: auto;"></img></ㅔ>
+<p align="center"><img src="./imgs/readme_logo_mammoth.png" width="100%" style="display: block; margin-left: auto; margin-right: auto;"></img></p>
 
 ## 0. Project Name
 > Container based hadoop distributed system log analyzer
@@ -11,15 +11,20 @@ It monitors the Hadoop system as a whole and plays a role in easily delivering m
 
 > Manage your Hadoop system with ease!
 
-[ usage image.1 ]
+<p align="center"><img src="./imgs/readme_overview01.png" height="400"
+style="display: block; margin-left: auto; margin-right: auto;"></img></p>
 
 > Do not worry and use it in any OS!
 
-[ usage image.2 ]
+<p align="center"><img src="./imgs/readme_overview02.png" width="100%"
+style="display: block; margin-left: auto; margin-right: auto;"></img></p>
+
+<p align="center"><img src="./imgs/readme_overview03.png" width="100%"
+style="display: block; margin-left: auto; margin-right: auto;"></img></p>
 
 > Easy installation!
 
-[ usage image.3 ]
+Just copy & Paste!
 
 ## 2. Features
 
@@ -107,9 +112,40 @@ Just because I want users to use it on the __big screen__.
 5. Change ```conf.py``` in your collector
 6. Change ```conf.py``` in your monitor
 
-## 7. Pages
+## 7. Pages(Test on the iPad pro 12.9 inch 4th)
 
-[ pages ]
+### 7.1. Initial page
+
+<p align="center"><img src="./imgs/init.png" height="400"
+style="display: block; margin-left: auto; margin-right: auto;"></img></p>
+
+### 7.2. Home page(Overview)
+
+<p align="center"><img src="./imgs/home.png" height="400"
+style="display: block; margin-left: auto; margin-right: auto;"></img></p>
+
+### 7.3. Resources monitoring page
+
+<p align="center"><img src="./imgs/resources.png" height="400"
+style="display: block; margin-left: auto; margin-right: auto;"></img></p>
+
+### 7.4. HDFS page
+
+<p align="center"><img src="./imgs/hdfs.png" height="400"
+style="display: block; margin-left: auto; margin-right: auto;"></img></p>
+
+### 7.5. HDFS file browsing page
+
+<p align="center"><img src="./imgs/hdfs_filebrowser.png" height="400"
+style="display: block; margin-left: auto; margin-right: auto;"></img></p>
+
+<p align="center"><img src="./imgs/hdfs_filebrowser_detail.png" height="400"
+style="display: block; margin-left: auto; margin-right: auto;"></img></p>
+
+### 7.6. Applications page
+
+<p align="center"><img src="./imgs/applications.png" height="400"
+style="display: block; margin-left: auto; margin-right: auto;"></img></p>
 
 ## 8. Mammoth service server status
 
