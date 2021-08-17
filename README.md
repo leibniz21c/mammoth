@@ -51,6 +51,8 @@ Just copy & Paste!
 ## 3. Architecture
 
 <p align="center"><img src="./imgs/architecture1.png" width="100%" style="display: block; margin-left: auto; margin-right: auto;"></img></p>
+<p align="center"><img src="./imgs/architecture2.png" width="100%" style="display: block; margin-left: auto; margin-right: auto;"></img></p>
+
 
 
 ## 4. Frameworks
