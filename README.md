@@ -50,7 +50,10 @@ Just copy & Paste!
 
 ## 3. Architecture
 
+### 3.1. Logical architecture
 <p align="center"><img src="./imgs/architecture1.png" width="100%" style="display: block; margin-left: auto; margin-right: auto;"></img></p>
+
+### 3.2. Physical architecture
 <p align="center"><img src="./imgs/architecture2.png" width="100%" style="display: block; margin-left: auto; margin-right: auto;"></img></p>
 
 
