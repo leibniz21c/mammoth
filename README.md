@@ -50,7 +50,8 @@ Just copy & Paste!
 
 ## 3. Architecture
 
-[ architecture image(modified) ]
+<p align="center"><img src="./imgs/architecture1.png" width="100%" style="display: block; margin-left: auto; margin-right: auto;"></img></p>
+
 
 ## 4. Frameworks
 1. __Mammoth monitor__ 
